@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel de Administración - Agropecuaria Jara">
+    <title>Panel de Administración | Agropecuaria Jara</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="admin_styles.css">
+    <link rel="icon" href="../agrojaralogo.png" type="image/png">
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Firebase SDK v9 modular -->
+    <script type="module" src="../js/firebase-config.js"></script>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar de navegación -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../agrojaralogo.png" alt="Agropecuaria Jara" class="admin-logo">
+                <h2>Panel de Administración</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#productos"><i class="fas fa-box-open"></i> Productos</a></li>
+                    <li><a href="#categorias"><i class="fas fa-tags"></i> Categorías</a></li>
+                    <li><a href="#destacados"><i class="fas fa-star"></i> Destacados</a></li>
+                    <li><a href="#pedidos"><i class="fas fa-shopping-cart"></i> Pedidos</a></li>
+                    <li><a href="#usuarios"><i class="fas fa-users"></i> Usuarios</a></li>
+                    <li><a href="#configuracion"><i class="fas fa-cog"></i> Configuración</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="btn-volver"><i class="fas fa-arrow-left"></i> Volver al sitio</a>
+                <button id="logoutBtn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</button>
+            </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+                    <h1 id="pageTitle">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="admin-search">
+                        <input type="text" placeholder="Buscar...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span>Administrador</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Sección Dashboard -->
+            <section id="dashboard" class="admin-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-box-open"></i></div>
+                        <div class="stat-info">
+                            <h3>Total Productos</h3>
+                            <p id="totalProducts">48</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <div class="stat-info">
+                            <h3>Pedidos Hoy</h3>
+                            <p id="todayOrders">12</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-info">
+                            <h3>Usuarios Registrados</h3>
+                            <p id="totalUsers">156</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="stat-info">
+                            <h3>Ingresos Mensuales</h3>
+                            <p id="monthlyRevenue">Bs 24,580</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="chart-container">
+                        <h3>Ventas Mensuales</h3>
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                    <div class="recent-orders">
+                        <h3>Pedidos Recientes</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Fecha</th>
+                                    <th>Total</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#1001</td>
+                                    <td>Juan Pérez</td>
+                                    <td>15/06/2023</td>
+                                    <td>Bs 1,250</td>
+                                    <td><span class="status completed">Completado</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#1002</td>
+                                    <td>María Gómez</td>
+                                    <td>14/06/2023</td>
+                                    <td>Bs 850</td>
+                                    <td><span class="status processing">Procesando</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#1003</td>
+                                    <td>Carlos Rojas</td>
+                                    <td>14/06/2023</td>
+                                    <td>Bs 1,780</td>
+                                    <td><span class="status shipped">Enviado</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#1004</td>
+                                    <td>Ana Fernández</td>
+                                    <td>13/06/2023</td>
+                                    <td>Bs 920</td>
+                                    <td><span class="status pending">Pendiente</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Productos -->
+            <section id="productos" class="admin-section">
+                <div class="section-header">
+                    <h2>Gestión de Productos</h2>
+                    <button id="addProductBtn" class="btn-primary"><i class="fas fa-plus"></i> Agregar Producto</button>
+                </div>
+                
+                <div class="product-filters">
+                    <select id="productCategoryFilter">
+                        <option value="">Todas las categorías</option>
+                        <option value="herbicidas">Herbicidas</option>
+                        <option value="insecticidas">Insecticidas</option>
+                        <option value="fungicidas">Fungicidas</option>
+                        <option value="fertilizantes">Fertilizantes</option>
+                        <option value="herramientas">Herramientas</option>
+                        <option value="repuestos">Repuestos</option>
+                        <option value="otros">Otros</option>
+                    </select>
+                    <input type="text" id="productSearch" placeholder="Buscar producto...">
+                    <button id="filterProductsBtn" class="btn-secondary">Filtrar</button>
+                    <button id="resetFiltersBtn" class="btn-outline">Restablecer</button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Destacado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Ejemplo de fila de producto -->
+                            <tr>
+                                <td>1</td>
+                                <td><img src="../Herbicidas/bazuka.jpg" alt="Herbicida Bazuka" width="50"></td>
+                                <td>Herbicida Bazuka</td>
+                                <td>Herbicidas</td>
+                                <td>Bs 120</td>
+                                <td>45</td>
+                                <td><span class="badge featured">Sí</span></td>
+                                <td>
+                                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><img src="../Insecticidas/imida.jpg" alt="Insecticida Imidacloprid" width="50"></td>
+                                <td>Imidacloprid 35 SC</td>
+                                <td>Insecticidas</td>
+                                <td>Bs 120</td>
+                                <td>32</td>
+                                <td><span class="badge">No</span></td>
+                                <td>
+                                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><img src="../Fertilizantes/urea.jpg" alt="Fertilizante Urea" width="50"></td>
+                                <td>Urea 46% N</td>
+                                <td>Fertilizantes</td>
+                                <td>Bs 180</td>
+                                <td>28</td>
+                                <td><span class="badge featured">Sí</span></td>
+                                <td>
+                                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="pagination">
+                    <button class="btn-pagination"><i class="fas fa-chevron-left"></i></button>
+                    <span class="current-page">1</span>
+                    <button class="btn-pagination"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </section>
+
+            <!-- Sección Categorías -->
+            <section id="categorias" class="admin-section">
+                <div class="section-header">
+                    <h2>Gestión de Categorías</h2>
+                    <button id="addCategoryBtn" class="btn-primary"><i class="fas fa-plus"></i> Agregar Categoría</button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table id="categoriesTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Productos</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Herbicidas</td>
+                                <td>8</td>
+                                <td>
+                                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Insecticidas</td>
+                                <td>7</td>
+                                <td>
+                                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Fungicidas</td>
+                                <td>6</td>
+                                <td>
+                                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Fertilizantes</td>
+                                <td>6</td>
+                                <td>
+                                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Herramientas</td>
+                                <td>6</td>
+                                <td>
+                                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Repuestos</td>
+                                <td>6</td>
+                                <td>
+                                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Otros</td>
+                                <td>9</td>
+                                <td>
+                                    <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Sección Productos Destacados -->
+            <section id="destacados" class="admin-section">
+                <div class="section-header">
+                    <h2>Productos Destacados</h2>
+                    <button id="addFeaturedBtn" class="btn-primary"><i class="fas fa-plus"></i> Agregar Destacado</button>
+                </div>
+                
+                <div class="featured-info">
+                    <p>Los productos destacados aparecen en la página principal del sitio web. Puedes seleccionar hasta 6 productos para mostrar.</p>
+                </div>
+                
+                <div class="featured-grid">
+                    <div class="featured-card">
+                        <img src="../Herbicidas/bazuka.jpg" alt="Herbicida Bazuka">
+                        <h4>Herbicida Bazuka</h4>
+                        <p>Bs 120</p>
+                        <button class="btn-remove-featured"><i class="fas fa-times"></i> Quitar</button>
+                    </div>
+                    <div class="featured-card">
+                        <img src="../Herbicidas/gramoxone.jpg" alt="Herbicida Gramoxone">
+                        <h4>Herbicida Gramoxone</h4>
+                        <p>Bs 90</p>
+                        <button class="btn-remove-featured"><i class="fas fa-times"></i> Quitar</button>
+                    </div>
+                    <div class="featured-card">
+                        <img src="../Herbicidas/kemate.png" alt="Herbicida Kemate">
+                        <h4>Herbicida Kemate</h4>
+                        <p>Bs 100</p>
+                        <button class="btn-remove-featured"><i class="fas fa-times"></i> Quitar</button>
+                    </div>
+                    <div class="featured-card">
+                        <img src="../Herbicidas/lifeline.png" alt="Herbicida Lifeline">
+                        <h4>Herbicida Lifeline</h4>
+                        <p>Bs 110</p>
+                        <button class="btn-remove-featured"><i class="fas fa-times"></i> Quitar</button>
+                    </div>
+                    <div class="featured-card empty">
+                        <i class="fas fa-plus"></i>
+                        <p>Agregar producto</p>
+                    </div>
+                    <div class="featured-card empty">
+                        <i class="fas fa-plus"></i>
+                        <p>Agregar producto</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modal para agregar/editar producto -->
+            <div id="productModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h3 id="modalProductTitle">Agregar Nuevo Producto</h3>
+                    
+                    <form id="productForm">
+                        <div class="form-group">
+                            <label for="productName">Nombre del Producto</label>
+                            <input type="text" id="productName" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productCategory">Categoría</label>
+                                <select id="productCategory" required>
+                                    <option value="">Seleccionar categoría</option>
+                                    <option value="herbicidas">Herbicidas</option>
+                                    <option value="insecticidas">Insecticidas</option>
+                                    <option value="fungicidas">Fungicidas</option>
+                                    <option value="fertilizantes">Fertilizantes</option>
+                                    <option value="herramientas">Herramientas</option>
+                                    <option value="repuestos">Repuestos</option>
+                                    <option value="otros">Otros</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="productPrice">Precio (Bs)</label>
+                                <input type="number" id="productPrice" min="0" step="0.01" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="productStock">Stock</label>
+                                <input type="number" id="productStock" min="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="productFeatured">Destacado</label>
+                                <select id="productFeatured">
+                                    <option value="0">No</option>
+                                    <option value="1">Sí</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="productDescription">Descripción</label>
+                            <textarea id="productDescription" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="productImage">Imagen del Producto</label>
+                            <input type="file" id="productImage" accept="image/*">
+                            <div id="imagePreview" class="image-preview"></div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary close-modal">Cancelar</button>
+                            <button type="submit" class="btn-primary">Guardar Producto</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal para agregar/editar categoría -->
+            <div id="categoryModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h3 id="modalCategoryTitle">Agregar Nueva Categoría</h3>
+                    
+                    <form id="categoryForm">
+                        <div class="form-group">
+                            <label for="categoryName">Nombre de la Categoría</label>
+                            <input type="text" id="categoryName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="categoryDescription">Descripción (Opcional)</label>
+                            <textarea id="categoryDescription" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="categoryImage">Imagen Representativa</label>
+                            <input type="file" id="categoryImage" accept="image/*">
+                            <div id="categoryImagePreview" class="image-preview"></div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary close-modal">Cancelar</button>
+                            <button type="submit" class="btn-primary">Guardar Categoría</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal para agregar producto destacado -->
+            <div id="featuredModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h3>Agregar Producto Destacado</h3>
+                    
+                    <div class="search-container">
+                        <input type="text" id="searchFeaturedProduct" placeholder="Buscar producto...">
+                        <button id="searchFeaturedBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="products-list">
+                        <div class="product-item">
+                            <img src="../Herbicidas/roundup.jpg" alt="Roundup Full II">
+                            <div class="product-info">
+                                <h4>Roundup Full II</h4>
+                                <p>Bs 135</p>
+                                <button class="btn-add-to-featured">Agregar</button>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <img src="../Fertilizantes/npk.jpg" alt="NPK 15-15-15">
+                            <div class="product-info">
+                                <h4>NPK 15-15-15</h4>
+                                <p>Bs 240</p>
+                                <button class="btn-add-to-featured">Agregar</button>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <img src="../Herramientas/mochila.jpg" alt="Mochila Fumigadora">
+                            <div class="product-info">
+                                <h4>Mochila Fumigadora 20L</h4>
+                                <p>Bs 320</p>
+                                <button class="btn-add-to-featured">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button class="btn-secondary close-modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Scripts de administración -->
+    <script type="module" src="admin_scripts.js"></script>
+</body>
+</html>

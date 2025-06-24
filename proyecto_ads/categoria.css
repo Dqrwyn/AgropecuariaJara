@@ -1,0 +1,548 @@
+/* Specific styles for category pages (Herbicidas, Insecticidas, etc.) */
+
+.categoria-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.category-header {
+    padding: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.category-hero h1 {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.category-hero p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: var(--primary-dark);
+    font-size: 0.95rem;
+}
+
+.filter-group select {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    min-width: 150px;
+    appearance: none; /* Remove default arrow */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%232e7d32%22%20d%3D%22M287%2C197.3l-136.3-136.3c-2.4-2.4-5.6-3.6-8.8-3.6c-3.2,0-6.4,1.2-8.8,3.6L5.4,197.3c-4.8,4.8-4.8,12.5,0,17.3c4.8,4.8,12.5,4.8,17.3,0l120.3-120.3l120.3,120.3c4.8,4.8,12.5,4.8,17.3,0C291.8,209.8,291.8,202.1,287,197.3z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.8em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+    cursor: pointer;
+    outline: none;
+    transition: border-color var(--transition);
+}
+
+.filter-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+}
+
+.filter-btn, .reset-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.filter-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.filter-btn:hover, .filter-btn:focus {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.reset-btn {
+    background-color: var(--text-light);
+    color: var(--white);
+}
+
+.reset-btn:hover, .reset-btn:focus {
+    background-color: #555;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+/* Product Grid for Categories */
+.productos-categoria {
+    padding-bottom: 2rem;
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2.5rem; /* Increased gap */
+    justify-items: center;
+}
+
+.producto-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ensures badge stays within bounds */
+    position: relative;
+    width: 100%;
+    max-width: 350px; /* Limit individual card width */
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.producto-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 0.3em 0.8em;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 10;
+}
+
+.producto-imagen {
+    position: relative;
+    width: 100%;
+    height: 220px; /* Consistent image height */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure image fits well */
+    transition: transform var(--transition);
+}
+
+.producto-card:hover .producto-imagen img {
+    transform: scale(1.05);
+}
+
+.quick-view {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(var(--primary-dark), 0.9);
+    color: var(--white);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity var(--transition);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.producto-card:hover .quick-view {
+    opacity: 1;
+}
+
+.producto-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.producto-info h3 {
+    font-size: 1.4rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.producto-desc {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    text-align: left;
+    flex-grow: 1; /* Allow description to take available space */
+}
+
+.producto-precio {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.producto-precio .precio-actual {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.producto-precio .precio-anterior {
+    text-decoration: line-through;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.producto-rating {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.producto-rating .stars {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+.producto-rating .reviews {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.btn-add-cart {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    transition: var(--transition);
+    width: 100%;
+    white-space: nowrap;
+}
+
+.btn-add-cart:hover, .btn-add-cart:focus {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    outline: none;
+}
+
+
+/* Category Info Tabs */
+.category-info {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.info-tabs {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.tabs-header {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    background-color: transparent;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border-bottom: 3px solid transparent;
+    outline: none;
+}
+
+.tab-btn:hover {
+    background-color: #eaeaea;
+    color: var(--primary-dark);
+}
+
+.tab-btn.active {
+    border-bottom-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--white);
+}
+
+.tabs-content {
+    padding: 2rem;
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-pane h3 {
+    font-size: 1.8rem;
+    color: var(--primary-dark);
+    margin-bottom: 1.25rem;
+}
+
+.tab-pane p, .tab-pane ul, .tab-pane ol {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.tab-pane ul, .tab-pane ol {
+    padding-left: 1.5rem;
+    list-style-position: outside;
+}
+
+.tab-pane ul li, .tab-pane ol li {
+    margin-bottom: 0.5rem;
+}
+
+.tab-pane strong {
+    color: var(--primary-dark);
+}
+
+.safety-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.safety-item {
+    background-color: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.safety-item .icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.safety-item h4 {
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.safety-item p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+
+/* Footer for Category Pages (more detailed) */
+.main-footer .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: left;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.footer-section p, .footer-section ul {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+}
+
+.footer-section p .icon {
+    margin-right: 0.5rem;
+    font-size: 1.1em;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color var(--transition);
+    display: block;
+    padding: 0.25rem 0;
+}
+
+.footer-section ul li a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+}
+
+/* Responsive adjustments for category.css */
+@media (max-width: 992px) {
+    .category-hero h1 {
+        font-size: 2.2rem;
+    }
+    .category-hero p {
+        font-size: 1.1rem;
+    }
+    .category-filter {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+    .filter-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    .filter-group select, .filter-btn, .reset-btn {
+        width: 100%;
+        max-width: 300px; /* Constrain width on smaller screens */
+        margin: 0 auto;
+    }
+    .productos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    .tab-btn {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .categoria-container {
+        padding: 0 1rem;
+        margin: 1.5rem auto;
+    }
+    .category-header {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .category-hero h1 {
+        font-size: 2rem;
+    }
+    .category-hero p {
+        font-size: 1rem;
+    }
+    .category-filter {
+        padding: 0.75rem;
+    }
+    .productos-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .producto-card {
+        max-width: none;
+    }
+    .producto-imagen {
+        height: 180px;
+    }
+    .category-info {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+    .tabs-content {
+        padding: 1.5rem;
+    }
+    .tab-pane h3 {
+        font-size: 1.5rem;
+    }
+    .tab-pane p, .tab-pane ul, .tab-pane ol {
+        font-size: 0.95rem;
+    }
+    .safety-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    .footer-section ul {
+        margin-top: 0.5rem;
+    }
+    .footer-section ul li a {
+        padding: 0.15rem 0;
+    }
+}

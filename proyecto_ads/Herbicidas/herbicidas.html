@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre nuestra amplia gama de herbicidas de alta calidad en Agropecuaria Jara para un control eficiente y seguro de malezas en todos tus cultivos.">
+    <meta name="keywords" content="herbicidas, control de malezas, agroquímicos, pre-emergente, post-emergente, sistémico, contacto, selectivo, no selectivo, soja, maíz, trigo, arroz, hortalizas, Bolivia">
+    <title>Herbicidas de Alta Calidad | Agropecuaria Jara</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../categoria.css">
+    <link rel="icon" href="/agrojaralogo.png" type="image/png">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="../index.html" aria-label="Ir a la página de inicio de Agropecuaria Jara">
+                <img src="../agrojaralogo.png" alt="Logo de Agropecuaria Jara" class="logo" width="60" height="60">
+            </a>
+            <h1>Agropecuaria Jara</h1>
+        </div>
+        <div class="header-right">
+            <form role="search" class="search-form">
+                <label for="search-herbicidas" class="sr-only">Buscar herbicidas específicos</label>
+                <input type="search" id="search-herbicidas" placeholder="Buscar herbicidas..." class="search-bar" aria-label="Buscar herbicidas">
+                <button type="submit" class="search-button" aria-label="Iniciar búsqueda de herbicidas">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </form>
+            <a href="../login.html" class="login-btn">Iniciar Sesión</a>
+        </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Navegación principal del sitio">
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../Herbicidas/herbicidas.html" aria-current="page">Herbicidas</a></li>
+            <li><a href="../Insecticidas/insecticidas.html">Insecticidas</a></li>
+            <li><a href="../Fungicidas/fungicidas.html">Fungicidas</a></li>
+            <li><a href="../Fertilizantes/fertilizantes.html">Fertilizantes</a></li>
+            <li><a href="../Herramientas/herramientas.html">Herramientas</a></li>
+            <li><a href="../Repuestos/repuestos.html">Repuestos</a></li>
+            <li><a href="../Otros/otros.html">Otros</a></li>
+        </ul>
+    </nav>
+
+    <main class="categoria-container">
+        <div class="category-header">
+            <div class="category-hero">
+                <h1>Herbicidas</h1>
+                <p>Soluciones efectivas y seguras para el control de malezas en todos tus cultivos. Protege tu inversión y maximiza tu rendimiento.</p>
+            </div>
+            <div class="category-filter">
+                <div class="filter-group">
+                    <label for="tipo-herbicida">Tipo de Herbicida:</label>
+                    <select id="tipo-herbicida" aria-controls="productos-herbicidas-grid">
+                        <option value="todos">Todos</option>
+                        <option value="preemergente">Pre-emergente</option>
+                        <option value="postemergente">Post-emergente</option>
+                        <option value="sistemico">Sistémico</option>
+                        <option value="contacto">De contacto</option>
+                        <option value="selectivo">Selectivo</option>
+                        <option value="noselectivo">No Selectivo</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="cultivo">Cultivo:</label>
+                    <select id="cultivo" aria-controls="productos-herbicidas-grid">
+                        <option value="todos">Todos</option>
+                        <option value="soja">Soja</option>
+                        <option value="maiz">Maíz</option>
+                        <option value="trigo">Trigo</option>
+                        <option value="arroz">Arroz</option>
+                        <option value="hortalizas">Hortalizas</option>
+                        <option value="cana">Caña de Azúcar</option>
+                        <option value="frutales">Frutales</option>
+                    </select>
+                </div>
+                <button class="filter-btn">Filtrar</button>
+                <button class="reset-btn">Reiniciar</button>
+            </div>
+        </div>
+
+        <section class="productos-categoria">
+            <h2 class="sr-only">Listado de Herbicidas</h2>
+            <div class="productos-grid" id="productos-herbicidas-grid">
+                <article class="producto-card" data-tipo="postemergente noselectivo" data-cultivo="todos" id="bazuka">
+                    <div class="producto-badge">Más Vendido</div>
+                    <div class="producto-imagen">
+                        <img src="../Herbicidas/bazuka.jpg" alt="Herbicida Bazuka 480 SL" loading="lazy" width="300" height="220">
+                        <button class="quick-view" aria-label="Vista rápida de Herbicida Bazuka 480 SL">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Bazuka 480 SL</h3>
+                        <p class="producto-desc">Herbicida post-emergente no selectivo, eficaz para el control de un amplio espectro de malezas anuales y perennes.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 120</span>
+                            <span class="precio-anterior">Bs 150</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars" aria-label="Calificación de 5 de 5 estrellas">★★★★★</span>
+                            <span class="reviews">(24 Reseñas)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Bazuka 480 SL al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-tipo="contacto noselectivo" data-cultivo="todos" id="gramoxone">
+                    <div class="producto-badge">Oferta</div>
+                    <div class="producto-imagen">
+                        <img src="../Herbicidas/gramoxone.jpg" alt="Herbicida Gramoxone 24 SL" loading="lazy" width="300" height="220">
+                        <button class="quick-view" aria-label="Vista rápida de Herbicida Gramoxone 24 SL">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Gramoxone 24 SL</h3>
+                        <p class="producto-desc">Herbicida de contacto de acción rápida, ideal para desecación en pre-siembra o control de malezas en inter-cultivo.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 90</span>
+                            <span class="precio-anterior">Bs 120</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars" aria-label="Calificación de 4 de 5 estrellas">★★★★☆</span>
+                            <span class="reviews">(18 Reseñas)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Gramoxone 24 SL al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-tipo="sistemico selectivo" data-cultivo="soja maiz trigo" id="kemate">
+                    <div class="producto-imagen">
+                        <img src="../Herbicidas/kemate.png" alt="Herbicida Kemate 360 SL" loading="lazy" width="300" height="220">
+                        <button class="quick-view" aria-label="Vista rápida de Herbicida Kemate 360 SL">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Kemate 360 SL</h3>
+                        <p class="producto-desc">Herbicida sistémico selectivo para el control de malezas de hoja ancha en cultivos de soja, maíz y trigo.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 100</span>
+                            <span class="precio-anterior">Bs 130</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars" aria-label="Calificación de 5 de 5 estrellas">★★★★★</span>
+                            <span class="reviews">(32 Reseñas)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Kemate 360 SL al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-tipo="preemergente selectivo" data-cultivo="maiz arroz cana" id="lifeline">
+                    <div class="producto-badge">Nuevo</div>
+                    <div class="producto-imagen">
+                        <img src="../Herbicidas/lifeline.png" alt="Herbicida Lifeline 480 EC" loading="lazy" width="300" height="220">
+                        <button class="quick-view" aria-label="Vista rápida de Herbicida Lifeline 480 EC">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Lifeline 480 EC</h3>
+                        <p class="producto-desc">Herbicida pre-emergente con control residual prolongado para gramíneas y malezas de hoja ancha en diversos cultivos.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 110</span>
+                            <span class="precio-anterior">Bs 140</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars" aria-label="Calificación de 4 de 5 estrellas">★★★★☆</span>
+                            <span class="reviews">(12 Reseñas)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Lifeline 480 EC al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-tipo="sistemico noselectivo" data-cultivo="todos" id="roundup">
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Herbicidas/roundup.png" alt="Herbicida Roundup Full II" loading="lazy" width="300" height="220">
+                        <button class="quick-view" aria-label="Vista rápida de Herbicida Roundup Full II">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Roundup Full II</h3>
+                        <p class="producto-desc">Herbicida sistémico de amplio espectro, no selectivo, para un control total de malezas de difícil erradicación.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 135</span>
+                            <span class="precio-anterior">Bs 160</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars" aria-label="Calificación de 5 de 5 estrellas">★★★★★</span>
+                            <span class="reviews">(45 Reseñas)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Roundup Full II al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-tipo="preemergente selectivo" data-cultivo="maiz caña" id="atrazina">
+                    <div class="producto-badge">Oferta</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Herbicidas/atrazina.png" alt="Herbicida Atrazina 500 SC" loading="lazy" width="300" height="220">
+                        <button class="quick-view" aria-label="Vista rápida de Herbicida Atrazina 500 SC">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Atrazina 500 SC</h3>
+                        <p class="producto-desc">Herbicida selectivo y residual, para el control de malezas de hoja ancha y gramíneas en cultivos de maíz y caña de azúcar.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 95</span>
+                            <span class="precio-anterior">Bs 115</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars" aria-label="Calificación de 3 de 5 estrellas">★★★☆☆</span>
+                            <span class="reviews">(15 Reseñas)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Atrazina 500 SC al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="category-info">
+            <h2 class="sr-only">Información Adicional sobre Herbicidas</h2>
+            <div class="info-tabs">
+                <div class="tabs-header" role="tablist" aria-label="Información de Herbicidas">
+                    <button class="tab-btn active" data-tab="descripcion" role="tab" id="tab-descripcion" aria-controls="descripcion" aria-selected="true">Descripción</button>
+                    <button class="tab-btn" data-tab="aplicacion" role="tab" id="tab-aplicacion" aria-controls="aplicacion" aria-selected="false">Modo de Aplicación</button>
+                    <button class="tab-btn" data-tab="seguridad" role="tab" id="tab-seguridad" aria-controls="seguridad" aria-selected="false">Medidas de Seguridad</button>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="descripcion" role="tabpanel" aria-labelledby="tab-descripcion">
+                        <h3>Herbicidas de Alta Eficiencia</h3>
+                        <p>Nuestra línea de herbicidas está diseñada para ofrecer soluciones efectivas en el control de malezas, adaptándose a las necesidades específicas de cada cultivo y tipo de vegetación no deseada.</p>
+                        <p>Contamos con herbicidas selectivos y no selectivos, de contacto y sistémicos, pre-emergentes y post-emergentes, que permiten un manejo integral de las malezas en diferentes etapas de crecimiento.</p>
+                        <ul>
+                            <li><strong>Amplio espectro:</strong> Control de gramíneas anuales y perennes, malezas de hoja ancha y ciperáceas.</li>
+                            <li><strong>Tecnología avanzada:</strong> Formulaciones que mejoran la absorción y translocación en la planta.</li>
+                            <li><strong>Residualidad controlada:</strong> Efecto prolongado sin dañar los cultivos en rotación.</li>
+                            <li><strong>Compatibilidad:</strong> Pueden mezclarse con otros agroquímicos para aplicaciones combinadas.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="aplicacion" role="tabpanel" aria-labelledby="tab-aplicacion" hidden>
+                        <h3>Recomendaciones de Aplicación</h3>
+                        <p>Para obtener los mejores resultados con nuestros herbicidas, siga estas recomendaciones esenciales:</p>
+                        <ol>
+                            <li><strong>Dosis:</strong> Utilice siempre la dosis recomendada según el tipo de maleza, cultivo y etapa de crecimiento. Consulte la etiqueta del producto.</li>
+                            <li><strong>Momento de aplicación:</strong> Aplique en las horas de menor temperatura (mañana temprano o atardecer) y con malezas en crecimiento activo.</li>
+                            <li><strong>Equipo de aplicación:</strong> Use equipos bien calibrados y boquillas adecuadas para herbicidas. Asegure una cobertura uniforme.</li>
+                            <li><strong>Condiciones ambientales:</strong> Evite aplicar con vientos fuertes, temperaturas extremas o cuando se esperen lluvias en las siguientes 6 horas post-aplicación.</li>
+                            <li><strong>Agua de mezcla:</strong> Utilice agua limpia con pH ajustado entre 5.5 y 7 para mayor eficiencia del producto.</li>
+                        </ol>
+                    </div>
+                    <div class="tab-pane" id="seguridad" role="tabpanel" aria-labelledby="tab-seguridad" hidden>
+                        <h3>Precauciones y Seguridad</h3>
+                        <p>El manejo seguro de herbicidas es fundamental para proteger al aplicador, al medio ambiente y a los cultivos adyacentes:</p>
+                        <div class="safety-grid">
+                            <div class="safety-item">
+                                <span class="icon" role="img" aria-label="Icono de científico con bata de laboratorio">👨‍🔬</span>
+                                <h4>Protección Personal</h4>
+                                <p>Use siempre equipo de protección personal (EPP) completo: overol, guantes de nitrilo, botas de seguridad, gafas protectoras y mascarilla respiratoria.</p>
+                            </div>
+                            <div class="safety-item">
+                                <span class="icon" role="img" aria-label="Icono de planta creciendo">🌿</span>
+                                <h4>Protección de Cultivos</h4>
+                                <p>Respetar estrictamente los períodos de carencia y reingreso. No aplicar en cultivos sensibles a los herbicidas. Evitar la deriva hacia áreas no objetivo.</p>
+                            </div>
+                            <div class="safety-item">
+                                <span class="icon" role="img" aria-label="Icono de gota de agua">💧</span>
+                                <h4>Protección Ambiental</h4>
+                                <p>Evitar la contaminación de fuentes de agua (ríos, lagos, pozos). No aplicar cerca de áreas sensibles como reservas naturales o zonas de captación de agua.</p>
+                            </div>
+                            <div class="safety-item">
+                                <span class="icon" role="img" aria-label="Icono de señal de prohibido">🚫</span>
+                                <h4>Primeros Auxilios y Eliminación</h4>
+                                <p>En caso de contacto, lavar con abundante agua y jabón. En ingestión, no inducir vómito y buscar atención médica inmediata. Eliminar envases vacíos según normativa local.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><span class="icon" role="img" aria-label="Teléfono">📞</span> +591 123 4567</p>
+                <p><span class="icon" role="img" aria-label="Email">✉️</span> info@agropecuariajara.com</p>
+                <p><span class="icon" role="img" aria-label="Ubicación">📍</span> Av. Principal #123, Ciudad de Montero, Santa Cruz, Bolivia</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horario de Atención</h3>
+                <p>Lunes a Viernes: 8:00 - 18:00</p>
+                <p>Sábado: 8:00 - 12:00</p>
+                <p>Domingo: Cerrado</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../login.html">Mi Cuenta</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year-category"></span> Agropecuaria Jara. Todos los derechos reservados.</p>
+            <p>Desarrollado por la Escuela Militar de Ingeniería - Unidad Académica del Trópico</p>
+        </div>
+    </footer>
+
+    <script src="../js/categoria.js"></script>
+    <script>
+      document.getElementById('current-year-category').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

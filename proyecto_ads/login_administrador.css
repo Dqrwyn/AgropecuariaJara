@@ -1,0 +1,367 @@
+/* Variables CSS */
+:root {
+    --primary-color: #2e7d32; /* Verde fuerte */
+    --primary-dark: #1b5e20; /* Verde más oscuro */
+    --primary-light: #4caf50; /* Verde claro */
+    --error-color: #d32f2f; /* Rojo de error */
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --medium-gray: #e0e0e0;
+    --dark-gray: #757575;
+    --white: #ffffff;
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada */
+    --transition: all 0.3s ease-in-out; /* Transiciones más suaves */
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+/* Header */
+.admin-header {
+    position: absolute; /* Cambiado a absolute para mantenerlo fijo pero no empujar el contenido */
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo {
+    height: 55px; /* Ligeramente más grande */
+    width: auto;
+    transition: var(--transition);
+    border-radius: 50%; /* Asegurar que el logo sea circular si es el caso */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Efecto de escala más notorio */
+}
+
+/* Contenedor principal */
+.admin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 2rem;
+    padding-top: 100px; /* Suficiente padding superior para el header fijo/absolute */
+}
+
+.admin-login-form-card { /* Renombrado para mayor claridad */
+    background: var(--white);
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 480px; /* Ligeramente más ancho */
+    padding: 3rem; /* Más padding */
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-login-form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px; /* Barra superior más gruesa */
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+}
+
+.admin-login-header {
+    text-align: center;
+    margin-bottom: 2.5rem; /* Más espacio */
+}
+
+.admin-login-header h1 {
+    font-size: 2.2rem; /* Título más grande */
+    color: var(--primary-dark);
+    margin: 0.75rem 0;
+}
+
+.admin-login-header p {
+    color: var(--dark-gray);
+    font-size: 1rem; /* Fuente más grande */
+}
+
+.admin-icon {
+    font-size: 3.8rem; /* Icono más grande */
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Formulario */
+#adminLoginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem; /* Más espacio entre grupos de formulario */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem; /* Más espacio entre label y input */
+    position: relative;
+}
+
+.form-group label {
+    font-size: 0.98rem; /* Fuente ligeramente más grande */
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.required {
+    color: var(--error-color);
+    margin-left: 3px;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 15px; /* Icono más a la derecha */
+    color: var(--dark-gray);
+    font-size: 1.1rem;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 14px 14px 14px 45px; /* Espacio para el icono */
+    border: 1px solid var(--medium-gray);
+    border-radius: 8px; /* Bordes más redondeados */
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.input-with-icon input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.25); /* Sombra de foco más pronunciada */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--dark-gray);
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 5px;
+    transition: var(--transition);
+}
+.toggle-password:hover {
+    color: var(--primary-dark);
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    min-height: 1.25rem;
+    margin-top: 0.25rem;
+    padding-left: 5px;
+}
+
+/* Botón de submit */
+.btn-submit {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 16px; /* Más padding */
+    font-size: 1.1rem; /* Fuente más grande */
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; /* Más espacio entre icono y texto */
+    transition: var(--transition);
+    margin-top: 1rem; /* Más margen superior */
+}
+
+.btn-submit:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-submit:disabled {
+    background-color: var(--medium-gray);
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Mensajes y loader */
+.form-feedback-area { /* Contenedor para loader y mensajes de error */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.loading-indicator {
+    display: none; /* Oculto por defecto */
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--dark-gray);
+}
+
+.spinner {
+    width: 22px; /* Más grande */
+    height: 22px; /* Más grande */
+    border: 3px solid rgba(46, 125, 50, 0.2);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite; /* Animación más rápida */
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.feedback-message { /* Clase genérica para mensajes de feedback */
+    display: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+    width: 100%;
+    word-break: break-word;
+}
+
+.feedback-message.error-message { /* Estilo específico para errores */
+    background-color: rgba(211, 47, 47, 0.15);
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+}
+
+/* Enlace de volver */
+.back-to-user {
+    margin-top: 2.5rem; /* Más margen superior */
+    text-align: center;
+}
+
+.btn-user {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Más espacio */
+    transition: var(--transition);
+    padding: 8px 15px; /* Añadir padding para que sea más clicable */
+    border-radius: 6px;
+}
+
+.btn-user:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+    background-color: var(--gray-light);
+}
+
+/* Footer */
+.admin-footer {
+    background-color: var(--white);
+    padding: 1.8rem; /* Más padding */
+    text-align: center;
+    font-size: 0.88rem; /* Fuente ligeramente más grande */
+    color: var(--dark-gray);
+    box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.07); /* Sombra más pronunciada */
+    margin-top: auto;
+}
+
+.admin-footer p {
+    margin-bottom: 0.6rem;
+}
+
+.security-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: #555; /* Un poco más oscuro */
+}
+
+.security-info i {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+/* Clases de utilidad */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .admin-container {
+        padding: 1rem;
+        padding-top: 80px;
+    }
+    .admin-login-form-card {
+        padding: 2rem;
+    }
+    .admin-login-header h1 {
+        font-size: 1.8rem;
+    }
+    .admin-icon {
+        font-size: 3rem;
+    }
+    .btn-submit {
+        font-size: 1rem;
+        padding: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+    .admin-header {
+        top: 15px;
+        left: 15px;
+    }
+    .logo {
+        height: 45px;
+    }
+    .admin-login-form-card {
+        padding: 1.5rem;
+    }
+    .admin-login-header h1 {
+        font-size: 1.6rem;
+    }
+}

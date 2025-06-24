@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel de administración de Agropecuaria Jara">
+    <title>Administrador | Agropecuaria Jara</title>
+    <link rel="stylesheet" href="login_administrador.css">
+    <link rel="icon" href="agrojaralogo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <header class="admin-header">
+        <a href="index.html" class="logo-link" aria-label="Volver al inicio">
+            <img src="agrojaralogo.png" alt="Agropecuaria Jara" class="logo" width="50" height="50">
+            <span class="sr-only">Agropecuaria Jara</span>
+        </a>
+    </header>
+
+    <main class="admin-container">
+        <section class="admin-login-form-card">
+            <div class="admin-login-header">
+                <i class="fas fa-lock admin-icon"></i>
+                <h1>Panel de Administración</h1>
+                <p>Acceso exclusivo para personal autorizado</p>
+            </div>
+
+            <form id="adminLoginForm" novalidate>
+                <div class="form-group">
+                    <label for="adminCode">Código de Acceso <span class="required">*</span></label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-key"></i>
+                        <input type="password" id="adminCode" name="adminCode" required placeholder="Ingrese el código de acceso" autocomplete="off" aria-describedby="adminCode-error">
+                        <button type="button" class="toggle-password" aria-label="Mostrar código">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                    <small class="error-message" id="adminCode-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Institucional <span class="required">*</span></label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" required placeholder="correo@agropecuariajara.com" aria-describedby="email-error">
+                    </div>
+                    <small class="error-message" id="email-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña <span class="required">*</span></label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" required placeholder="Mínimo 8 caracteres" minlength="8" aria-describedby="password-error">
+                        <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                    <small class="error-message" id="password-error"></small>
+                </div>
+
+                <button type="submit" class="btn-submit" id="adminSubmitBtn">
+                    <i class="fas fa-sign-in-alt"></i> Acceder al Panel
+                </button>
+
+                <div class="form-feedback-area">
+                    <div class="loading-indicator" id="adminLoader" role="status" aria-live="polite">
+                        <div class="spinner"></div>
+                        <span>Verificando credenciales...</span>
+                    </div>
+                    <div class="feedback-message error-message" id="adminGlobalErrorMessage" role="alert"></div>
+                </div>
+            </form>
+
+            <div class="back-to-user">
+                <a href="login.html" class="btn-user">
+                    <i class="fas fa-arrow-left"></i> Volver al login de usuario
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="admin-footer">
+        <p>&copy; 2023 Agropecuaria Jara. Todos los derechos reservados.</p>
+        <p class="security-info">
+            <i class="fas fa-shield-alt"></i> Sistema seguro - Protegido por encriptación SSL
+        </p>
+    </footer>
+
+    <script type="module">
+        import {
+            auth,
+            signInWithEmailAndPassword,
+            onAuthStateChanged
+        } from './js/firebase-config.js'; // Asegúrate de que la ruta sea correcta
+
+        // Elementos del DOM
+        const adminLoginForm = document.getElementById('adminLoginForm');
+        const adminCodeInput = document.getElementById('adminCode');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const adminSubmitBtn = document.getElementById('adminSubmitBtn');
+        const adminLoader = document.getElementById('adminLoader');
+        const adminGlobalErrorMessage = document.getElementById('adminGlobalErrorMessage');
+
+        // Referencias a mensajes de error específicos de campos
+        const adminCodeError = document.getElementById('adminCode-error');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+
+        // Constante para el código de administrador (¡ADVERTENCIA: Solo para desarrollo! En producción, esto NUNCA debe estar en el frontend)
+        const ADMIN_SECRET_CODE = "ADMIN123";
+
+        // Función para mostrar mensajes de error globales
+        const showGlobalError = (message) => {
+            adminGlobalErrorMessage.textContent = message;
+            adminGlobalErrorMessage.style.display = 'block';
+        };
+
+        // Función para limpiar todos los mensajes de error
+        const clearAllErrors = () => {
+            adminCodeError.textContent = '';
+            emailError.textContent = '';
+            passwordError.textContent = '';
+            adminGlobalErrorMessage.textContent = '';
+            adminGlobalErrorMessage.style.display = 'none';
+        };
+
+        // Función para manejar el estado de carga del botón
+        const setButtonLoading = (isLoading) => {
+            if (isLoading) {
+                adminSubmitBtn.disabled = true;
+                adminSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Accediendo...';
+                adminLoader.style.display = 'flex';
+                adminGlobalErrorMessage.style.display = 'none';
+            } else {
+                adminSubmitBtn.disabled = false;
+                adminSubmitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Acceder al Panel';
+                adminLoader.style.display = 'none';
+            }
+        };
+
+        // Toggle para mostrar/ocultar contraseña y código de acceso
+        document.querySelectorAll('.toggle-password').forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.closest('.input-with-icon').querySelector('input');
+                const icon = this.querySelector('i');
+                const isPassword = input.type === 'password';
+
+                input.type = isPassword ? 'text' : 'password';
+                icon.classList.toggle('fa-eye', !isPassword);
+                icon.classList.toggle('fa-eye-slash', isPassword);
+                this.setAttribute('aria-label', isPassword ? 'Ocultar' : 'Mostrar');
+            });
+        });
+
+        // Validación y envío del formulario de administrador
+        adminLoginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            clearAllErrors(); // Limpiar errores antes de una nueva validación
+
+            const adminCode = adminCodeInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+
+            let isValid = true;
+
+            // Validar Código de Acceso
+            if (!adminCode) {
+                adminCodeError.textContent = 'El código de acceso es requerido.';
+                isValid = false;
+            } else if (adminCode !== ADMIN_SECRET_CODE) {
+                // ¡IMPORTANTE! Esto es una validación de seguridad muy básica en el frontend.
+                // En una aplicación real, este código de administrador NUNCA debe ser validado en el cliente.
+                // Debe ser enviado a un backend seguro que lo valide contra una base de datos o sistema de gestión de roles.
+                adminCodeError.textContent = 'Código de acceso incorrecto.';
+                isValid = false;
+            }
+
+            // Validar Correo
+            if (!email) {
+                emailError.textContent = 'El correo institucional es requerido.';
+                isValid = false;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                emailError.textContent = 'Por favor, introduce un correo electrónico válido.';
+                isValid = false;
+            } else if (!email.endsWith('@agropecuariajara.com')) { // Validación de dominio institucional
+                emailError.textContent = 'El correo debe ser institucional (@agropecuariajara.com).';
+                isValid = false;
+            }
+
+            // Validar Contraseña
+            if (!password) {
+                passwordError.textContent = 'La contraseña es requerida.';
+                isValid = false;
+            } else if (password.length < 8) {
+                passwordError.textContent = 'La contraseña debe tener al menos 8 caracteres.';
+                isValid = false;
+            }
+
+            if (!isValid) {
+                showGlobalError('Por favor, corrige los errores en el formulario.');
+                return; // Detener el envío si hay errores de validación de campos
+            }
+
+            setButtonLoading(true); // Mostrar estado de carga
+
+            try {
+                // Autenticación con Firebase
+                await signInWithEmailAndPassword(auth, email, password);
+
+                // Redirigir al panel de administración solo si la autenticación es exitosa
+                window.location.href = 'panel_administrador.html';
+
+            } catch (error) {
+                let errorMessage = 'Error al iniciar sesión: ';
+                switch (error.code) {
+                    case 'auth/invalid-email':
+                        errorMessage += 'Correo electrónico no válido.';
+                        emailError.textContent = 'Correo electrónico no válido.';
+                        break;
+                    case 'auth/user-disabled':
+                        errorMessage += 'Tu cuenta ha sido deshabilitada.';
+                        break;
+                    case 'auth/user-not-found':
+                    case 'auth/wrong-password':
+                        errorMessage += 'Correo o contraseña incorrectos.';
+                        emailError.textContent = 'Credenciales incorrectas.';
+                        passwordError.textContent = 'Credenciales incorrectas.';
+                        break;
+                    case 'auth/too-many-requests':
+                        errorMessage += 'Demasiados intentos fallidos. Intenta de nuevo más tarde.';
+                        break;
+                    default:
+                        console.error("Error de login de administrador:", error); // Para depuración
+                        errorMessage += `Ocurrió un error inesperado. ${error.message}`;
+                }
+                showGlobalError(errorMessage);
+            } finally {
+                setButtonLoading(false); // Ocultar estado de carga
+            }
+        });
+
+        // Verificar estado de autenticación al cargar la página (opcional, para redirigir si ya está logueado)
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log("Usuario administrador autenticado:", user.email);
+                // Aquí podrías añadir una verificación de roles si Firebase lo soporta
+                // para asegurar que el usuario sea un administrador antes de redirigir.
+                // Por ejemplo, si tienes un campo 'isAdmin' en Firestore para el usuario.
+                // Si el usuario no tiene rol de admin, redirigir a una página de error o al login normal.
+                // window.location.href = 'panel_administrador.html'; // Descomenta si quieres auto-redirigir si ya está logueado
+            } else {
+                console.log("No hay usuario administrador autenticado.");
+            }
+        });
+    </script>
+</body>
+</html>

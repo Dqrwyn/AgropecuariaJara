@@ -1,0 +1,493 @@
+
+/* Reset y estilos base */
+:root {
+    --primary-color: #2e7d32; /* Verde fuerte */
+    --primary-dark: #1b5e20; /* Verde más oscuro */
+    --primary-light: #4caf50; /* Verde más claro */
+    --secondary-color: #ffc107; /* Amarillo ámbar */
+    --secondary-dark: #ffab00; /* Amarillo ámbar más oscuro */
+    --text-color: #333; /* Texto oscuro principal */
+    --text-light: #777; /* Texto gris secundario */
+    --bg-color: #f4f4f4; /* Fondo gris claro */
+    --white: #ffffff;
+    --black: #000000;
+    --border-color: #e0e0e0; /* Color de borde ligero */
+    --border-radius: 8px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size for rem units */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Helper for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* General Link Styles */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Header */
+.main-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-container a {
+    display: flex; /* To center the image vertically if needed */
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    width: 60px; /* Fixed width for better control */
+    border-radius: 50%;
+    object-fit: cover; /* Ensure image covers the area */
+}
+
+.main-header h1 {
+    font-size: 1.8rem;
+    color: var(--white);
+    margin: 0;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 0.65rem 1rem; /* Slightly increased padding */
+    font-size: 1rem;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    border: none;
+    min-width: 250px;
+    outline: none; /* Remove default outline */
+}
+
+.search-bar:focus {
+    box-shadow: 0 0 0 2px var(--secondary-color); /* Custom focus style */
+}
+
+.search-button {
+    background-color: var(--primary-dark);
+    border: none;
+    padding: 0.65rem; /* Match search bar padding */
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    transition: var(--transition);
+    outline: none;
+}
+
+.search-button:hover,
+.search-button:focus {
+    background-color: var(--primary-light);
+    transform: translateY(-1px);
+}
+
+.search-button svg {
+    display: block; /* Remove extra space below SVG */
+}
+
+.login-btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.75rem 1.25rem; /* More prominent button */
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: var(--transition);
+    border: 2px solid transparent; /* For consistent size on hover */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.login-btn:hover {
+    background-color: var(--secondary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Navegación */
+.main-nav {
+    background-color: var(--primary-dark);
+    padding: 1rem 0;
+    position: sticky;
+    top: 80px; /* Adjust based on header height */
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0 1rem;
+}
+
+.main-nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    display: block; /* Make the whole area clickable */
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+    background-color: var(--primary-light);
+    outline: none;
+}
+
+.main-nav a[aria-current="page"] {
+    background-color: var(--primary-light);
+    font-weight: 600;
+}
+
+/* Contenido principal */
+main {
+    flex-grow: 1; /* Allow main content to grow and push footer down */
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem; /* Increased side padding */
+}
+
+.welcome {
+    text-align: center;
+    padding: 2.5rem; /* Increased padding */
+    background-color: var(--white);
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.welcome h2 {
+    font-size: 2.2rem; /* Slightly larger heading */
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+}
+
+.welcome p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    max-width: 800px; /* Limit line length for readability */
+    margin: 0 auto;
+}
+
+/* Productos destacados */
+.productos-destacados {
+    padding: 2rem;
+    background-color: var(--white);
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.productos-destacados h2 {
+    text-align: center;
+    margin-bottom: 2.5rem; /* More space below heading */
+    font-size: 2rem;
+    color: var(--primary-dark);
+}
+
+.productos-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Slightly wider min width */
+    gap: 2rem;
+    justify-items: center;
+}
+
+.producto {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    width: 100%;
+    text-align: center;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Distribute space evenly */
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.producto img {
+    max-width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: contain;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.25rem; /* Slightly more space */
+}
+
+.producto h3 {
+    font-size: 1.3rem; /* Slightly larger product title */
+    margin-bottom: 0.75rem;
+    color: var(--primary-dark);
+}
+
+.precio-container {
+    margin: 1rem 0 1.5rem; /* Adjusted margin */
+    width: 100%;
+}
+
+.precio-anterior {
+    text-decoration: line-through;
+    color: var(--text-light);
+    font-size: 1rem; /* Slightly larger */
+}
+
+.precio-actual {
+    font-size: 1.4rem; /* More prominent current price */
+    font-weight: 700; /* Bolder */
+    color: var(--primary-color);
+    display: block; /* Ensure it takes its own line */
+}
+
+.btn-producto {
+    display: inline-block;
+    margin-top: auto; /* Push button to the bottom */
+    padding: 0.85rem 1.75rem; /* More substantial button */
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: var(--transition);
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn-producto:hover,
+.btn-producto:focus {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 2.5rem 1rem; /* Increased padding */
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-footer p {
+    margin-bottom: 0.75rem; /* More space between paragraphs */
+    font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .main-header h1 {
+        font-size: 1.6rem;
+    }
+    .search-bar {
+        min-width: 200px;
+    }
+    .main-nav ul {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        position: static; /* Header can be static on small screens */
+    }
+    
+    .logo-container {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .main-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .header-right {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap; /* Allow search and login to wrap */
+        gap: 0.75rem;
+    }
+    
+    .search-form {
+        width: calc(100% - 120px); /* Adjust width for login button */
+        max-width: 350px;
+    }
+    
+    .search-bar {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .login-btn {
+        flex-shrink: 0; /* Prevent button from shrinking */
+    }
+    
+    .main-nav {
+        top: 0; /* Reset sticky top position if header is static */
+        padding: 0.75rem 0;
+    }
+
+    .main-nav ul {
+        gap: 0.75rem;
+        padding: 0 0.5rem;
+    }
+
+    .main-nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    main {
+        padding: 0 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .welcome {
+        padding: 2rem 1.5rem;
+    }
+
+    .welcome h2 {
+        font-size: 1.8rem;
+    }
+
+    .welcome p {
+        font-size: 1rem;
+    }
+
+    .productos-destacados h2 {
+        font-size: 1.7rem;
+    }
+
+    .productos-lista {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .producto h3 {
+        font-size: 1.15rem;
+    }
+
+    .precio-actual {
+        font-size: 1.2rem;
+    }
+
+    .btn-producto {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-right {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .search-form {
+        width: 100%;
+        max-width: none;
+    }
+    .login-btn {
+        width: 100%;
+        text-align: center;
+    }
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .productos-lista {
+        grid-template-columns: 1fr;
+    }
+    .producto img {
+        height: 180px;
+    }
+}

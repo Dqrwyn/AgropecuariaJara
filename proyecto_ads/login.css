@@ -1,0 +1,480 @@
+/* Variables CSS */
+:root {
+    --primary-color: #2e7d32; /* Verde fuerte */
+    --primary-dark: #1b5e20; /* Verde más oscuro */
+    --primary-light: #4caf50; /* Verde claro */
+    --secondary-color: #ffc107; /* Amarillo */
+    --error-color: #d32f2f; /* Rojo de error */
+    --success-color: #388e3c; /* Verde de éxito */
+    --info-color: #2196f3; /* Azul para mensajes de información */
+    --text-color: #333; /* Texto oscuro */
+    --text-light: #777; /* Texto gris claro */
+    --bg-color: #f5f5f5; /* Fondo general */
+    --white: #ffffff;
+    --gray-light: #f0f0f0;
+    --border-color: #ddd;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.login-header {
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+    background-color: var(--white); /* Fondo para el header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+}
+
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    gap: 1rem;
+    transition: var(--transition);
+}
+
+.logo-link:hover {
+    opacity: 0.9;
+}
+
+.logo {
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.login-header h1 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem); /* Responsive font size */
+    color: var(--primary-dark);
+}
+
+/* Main content */
+.login-main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem; /* Aumentar padding para mejor espaciado */
+}
+
+.login-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 480px; /* Un poco más ancho */
+    padding: 2.5rem; /* Aumentar padding */
+    margin: 1rem;
+    position: relative; /* Para la barra superior */
+    overflow: hidden; /* Asegurar que el pseudo-elemento no se desborde */
+}
+
+.login-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px; /* Barra superior decorativa */
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+}
+
+.login-card-header { /* Renombrado de .login-header para evitar conflicto */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-card-header .login-icon {
+    font-size: 3.5rem; /* Icono más grande */
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.login-card-header h2 {
+    font-size: 2rem; /* Título más grande */
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.login-card-header p {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* Formulario */
+#loginForm { /* Usar ID para el formulario específico */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative; /* Para posicionar el error message */
+}
+
+.form-group label {
+    font-weight: 600; /* Más énfasis en labels */
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 1rem; /* Icono un poco más a la derecha */
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 3rem; /* Espacio para el icono */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.input-with-icon input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2); /* Sombra de foco más pronunciada */
+}
+
+.input-with-icon .toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-light);
+    padding: 0.3rem;
+    transition: var(--transition);
+}
+
+.input-with-icon .toggle-password:hover {
+    color: var(--primary-dark);
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    min-height: 1.25rem; /* Mantener espacio para el mensaje de error */
+    margin-top: 0.25rem;
+    padding-left: 5px; /* Pequeño padding para alinear con el input */
+}
+
+/* Opciones del formulario */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem; /* Fuente ligeramente más grande */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+    gap: 0.75rem; /* Espacio entre elementos al envolver */
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.remember-me input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--primary-color);
+    border-radius: 4px;
+    display: grid;
+    place-content: center;
+    transition: var(--transition);
+}
+
+.remember-me input[type="checkbox"]::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--primary-color);
+    background-color: CanvasText;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 85% 0%, 35% 62%);
+}
+
+.remember-me input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.remember-me label {
+    cursor: pointer;
+    font-weight: normal; /* No tan fuerte como los labels de input */
+}
+
+
+.forgot-password {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+    color: var(--primary-dark);
+}
+
+/* Botón de submit */
+.submit-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.9rem; /* Más padding para un botón más grande */
+    border-radius: var(--border-radius);
+    font-size: 1.1rem; /* Fuente más grande */
+    font-weight: 600; /* Más peso */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem; /* Más espacio entre icono y texto */
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px); /* Pequeño efecto al pasar el ratón */
+}
+
+.submit-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Feedback del login */
+.login-feedback {
+    padding: 0.9rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 1.5rem; /* Más margen superior */
+    display: none; /* Oculto por defecto */
+    word-break: break-word; /* Para mensajes largos */
+}
+
+.login-feedback.error {
+    background-color: rgba(211, 47, 47, 0.15); /* Más opaco */
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+}
+
+.login-feedback.success {
+    background-color: rgba(56, 142, 60, 0.15); /* Más opaco */
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+.login-feedback.info { /* Nuevo estilo para mensajes de información/carga */
+    background-color: rgba(33, 150, 243, 0.15);
+    color: var(--info-color);
+    border: 1px solid var(--info-color);
+}
+
+
+/* Divisor */
+.login-divider {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0; /* Más espacio */
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.login-divider span {
+    padding: 0 1rem;
+    background-color: var(--white); /* Para que el texto "o continuar con" se vea sobre la línea */
+    position: relative;
+    z-index: 1;
+}
+
+/* Login social */
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Más espacio */
+    margin-bottom: 2rem; /* Más margen inferior */
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem; /* Más espacio */
+    padding: 0.85rem; /* Más padding */
+    border-radius: var(--border-radius);
+    font-size: 0.95rem; /* Fuente más grande */
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    background-color: var(--white);
+    width: 100%;
+}
+
+.social-btn:hover {
+    background-color: var(--gray-light);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.google-btn {
+    color: #5f6368;
+    background-color: var(--white);
+    border-color: #dadce0;
+}
+.google-btn:hover {
+    background-color: #f8f8f8;
+}
+.google-btn i {
+    color: #db4437; /* Color de Google */
+    font-size: 1.1em;
+}
+
+
+.facebook-btn {
+    color: #1877f2;
+    background-color: var(--white);
+    border-color: #1877f2;
+}
+.facebook-btn:hover {
+    background-color: #f8f8f8;
+}
+.facebook-btn i {
+    font-size: 1.1em;
+}
+
+/* Footer del login */
+.login-footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.login-footer a { /* Enlace de registro */
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+    color: var(--primary-dark);
+}
+
+/* Footer de la página */
+.login-footer-page {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    background-color: var(--white); /* Fondo para el footer */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05); /* Sombra superior */
+    margin-top: auto; /* Empuja el footer al final de la página */
+}
+.login-footer-page p {
+    margin: 0.25rem 0;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .login-main {
+        padding: 1rem;
+    }
+    .login-card {
+        padding: 1.5rem;
+        margin: 0.5rem;
+    }
+    .login-card-header h2 {
+        font-size: 1.6rem;
+    }
+    .login-card-header .login-icon {
+        font-size: 3rem;
+    }
+    .submit-btn {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+    .social-btn {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .login-header h1 {
+        font-size: 1.4rem;
+    }
+    .logo-link {
+        gap: 0.5rem;
+    }
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+}

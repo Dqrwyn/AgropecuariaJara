@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre nuestra amplia gama de fertilizantes de alta calidad en Agropecuaria Jara para optimizar la nutrición y el rendimiento de tus cultivos.">
+    <title>Fertilizantes | Agropecuaria Jara</title>
+    <link rel="stylesheet" href="/proyecto_ads/styles.css">
+    <link rel="stylesheet" href="/proyecto_ads/categoria.css">
+    <link rel="icon" href="../agrojaralogo.png" type="image/png">
+    <link rel="preload" href="../agrojaralogo.png" as="image">
+    <link rel="preload" href="/proyecto_ads/styles.css" as="style">
+    <link rel="preload" href="/proyecto_ads/categoria.css" as="style">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="../index.html" aria-label="Ir a la página de inicio de Agropecuaria Jara">
+                <img src="../agrojaralogo.png" alt="Logotipo de Agropecuaria Jara" class="logo" width="60" height="60">
+            </a>
+            <h1>Agropecuaria Jara</h1>
+        </div>
+        <div class="header-right">
+            <form role="search" class="search-form" action="/search" method="get">
+                <label for="search-input" class="sr-only">Buscar fertilizantes</label>
+                <input type="search" id="search-input" name="q" placeholder="Buscar fertilizantes..." class="search-bar" aria-label="Buscar productos fertilizantes">
+                <button type="submit" class="search-button" aria-label="Realizar búsqueda">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </form>
+            <a href="../login.html" class="login-btn">Iniciar Sesión</a>
+        </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../Herbicidas/herbicidas.html">Herbicidas</a></li>
+            <li><a href="../Insecticidas/insecticidas.html">Insecticidas</a></li>
+            <li><a href="../Fungicidas/fungicidas.html">Fungicidas</a></li>
+            <li><a href="../Fertilizantes/fertilizantes.html" aria-current="page">Fertilizantes</a></li>
+            <li><a href="../Herramientas/herramientas.html">Herramientas</a></li>
+            <li><a href="../Repuestos/repuestos.html">Repuestos</a></li>
+            <li><a href="../Otros/otros.html">Otros</a></li>
+        </ul>
+    </nav>
+
+    <main class="categoria-container">
+        <section class="category-header">
+            <div class="category-hero">
+                <h1>Fertilizantes</h1>
+                <p>Nutrición vegetal de alta calidad para maximizar el rendimiento de tus cultivos</p>
+            </div>
+            <div class="category-filter">
+                <div class="filter-group">
+                    <label for="tipo-fertilizante">Tipo de Fertilizante:</label>
+                    <select id="tipo-fertilizante" aria-controls="productos-grid">
+                        <option value="todos">Todos</option>
+                        <option value="nitrogenado">Nitrogenados</option>
+                        <option value="fosfatado">Fosfatados</option>
+                        <option value="potasico">Potásicos</option>
+                        <option value="complejo">Complejos</option>
+                        <option value="organico">Orgánicos</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="presentacion">Presentación:</label>
+                    <select id="presentacion" aria-controls="productos-grid">
+                        <option value="todos">Todos</option>
+                        <option value="granulado">Granulado</option>
+                        <option value="liquido">Líquido</option>
+                        <option value="polvo">Polvo</option>
+                        <option value="cristalino">Cristalino</option>
+                    </select>
+                </div>
+                <button class="filter-btn" aria-label="Aplicar filtros de productos">Filtrar</button>
+                <button class="reset-btn" aria-label="Reiniciar filtros">Reiniciar</button>
+            </div>
+        </section>
+
+        <section class="productos-categoria">
+            <div class="productos-grid" id="productos-grid">
+                <article class="producto-card" data-tipo="nitrogenado" data-presentacion="granulado">
+                    <div class="producto-badge">Más vendido</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Fertilizantes/urea.png" alt="Fertilizante Urea 46% N" loading="lazy" width="300" height="200">
+                        <button class="quick-view" aria-label="Vista rápida de Fertilizante Urea 46% N">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Urea 46% N</h3>
+                        <p class="producto-desc">Fertilizante nitrogenado de alta concentración para crecimiento vegetativo.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 180</span>
+                            <span class="precio-anterior">Bs 200</span>
+                        </div>
+                        <div class="producto-rating" role="img" aria-label="Calificación de 5 de 5 estrellas basada en 35 reseñas">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(35)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Urea 46% N al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-tipo="fosfatado" data-presentacion="granulado">
+                    <div class="producto-badge">Oferta</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Fertilizantes/dap.jpg" alt="Fertilizante DAP 18-46-0" loading="lazy" width="300" height="200">
+                        <button class="quick-view" aria-label="Vista rápida de Fertilizante DAP 18-46-0">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>DAP 18-46-0</h3>
+                        <p class="producto-desc">Fosfato diamónico para desarrollo radicular y floración.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 220</span>
+                            <span class="precio-anterior">Bs 250</span>
+                        </div>
+                        <div class="producto-rating" role="img" aria-label="Calificación de 4 de 5 estrellas basada en 28 reseñas">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(28)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir DAP 18-46-0 al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-tipo="complejo" data-presentacion="granulado">
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Fertilizantes/NPK.jpg" alt="Fertilizante NPK 15-15-15" loading="lazy" width="300" height="200">
+                        <button class="quick-view" aria-label="Vista rápida de Fertilizante NPK 15-15-15">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>NPK 15-15-15</h3>
+                        <p class="producto-desc">Fertilizante completo balanceado para todo tipo de cultivos.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 240</span>
+                            <span class="precio-anterior">Bs 270</span>
+                        </div>
+                        <div class="producto-rating" role="img" aria-label="Calificación de 5 de 5 estrellas basada en 42 reseñas">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(42)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir NPK 15-15-15 al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-tipo="organico" data-presentacion="polvo">
+                    <div class="producto-badge">Nuevo</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Fertilizantes/humus.webp" alt="Humus de Lombriz" loading="lazy" width="300" height="200">
+                        <button class="quick-view" aria-label="Vista rápida de Humus de Lombriz">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Humus de Lombriz</h3>
+                        <p class="producto-desc">Abono orgánico 100% natural, mejora la estructura del suelo.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 120</span>
+                            <span class="precio-anterior">Bs 140</span>
+                        </div>
+                        <div class="producto-rating" role="img" aria-label="Calificación de 4 de 5 estrellas basada en 19 reseñas">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(19)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Humus de Lombriz al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-tipo="complejo" data-presentacion="liquido">
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Fertilizantes/foliar.jpeg" alt="Fertilizante Foliar 20-20-20" loading="lazy" width="300" height="200">
+                        <button class="quick-view" aria-label="Vista rápida de Fertilizante Foliar 20-20-20">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Fertilizante Foliar 20-20-20</h3>
+                        <p class="producto-desc">Nutrientes balanceados para aplicación foliar, rápida absorción.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 150</span>
+                            <span class="precio-anterior">Bs 180</span>
+                        </div>
+                        <div class="producto-rating" role="img" aria-label="Calificación de 5 de 5 estrellas basada en 31 reseñas">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(31)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Fertilizante Foliar 20-20-20 al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-tipo="complejo" data-presentacion="varios">
+                    <div class="producto-badge">Combo</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Fertilizantes/kit.jpg" alt="Kit Nutrición Completa" loading="lazy" width="300" height="200">
+                        <button class="quick-view" aria-label="Vista rápida de Kit Nutrición Completa">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Kit Nutrición Completa</h3>
+                        <p class="producto-desc">Paquete con fertilizantes para todas las etapas del cultivo.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 650</span>
+                            <span class="precio-anterior">Bs 750</span>
+                        </div>
+                        <div class="producto-rating" role="img" aria-label="Calificación de 4 de 5 estrellas basada en 15 reseñas">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(15)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Kit Nutrición Completa al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="category-info">
+            <div class="info-tabs">
+                <div class="tabs-header" role="tablist">
+                    <button class="tab-btn active" data-tab="descripcion" role="tab" aria-selected="true" aria-controls="descripcion-pane" id="tab-descripcion">Descripción</button>
+                    <button class="tab-btn" data-tab="aplicacion" role="tab" aria-selected="false" aria-controls="aplicacion-pane" id="tab-aplicacion">Modo de Aplicación</button>
+                    <button class="tab-btn" data-tab="seguridad" role="tab" aria-selected="false" aria-controls="seguridad-pane" id="tab-seguridad">Medidas de Seguridad</button>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="descripcion-pane" role="tabpanel" aria-labelledby="tab-descripcion">
+                        <h2>Fertilizantes de Alta Calidad</h2>
+                        <p>Nuestra línea de fertilizantes está diseñada para proporcionar a tus cultivos los nutrientes esenciales que necesitan en cada etapa de su desarrollo, maximizando el rendimiento y la calidad de la cosecha.</p>
+                        <p>Desde fertilizantes minerales de rápida absorción hasta abonos orgánicos que mejoran la salud del suelo, tenemos soluciones para todo tipo de cultivos y sistemas de producción.</p>
+                        <ul>
+                            <li><strong>Nutrientes esenciales:</strong> Nitrógeno, fósforo, potasio y micronutrientes.</li>
+                            <li><strong>Formulaciones especializadas:</strong> Para cada etapa fenológica del cultivo.</li>
+                            <li><strong>Tecnología avanzada:</strong> Fertilizantes de liberación controlada y alta eficiencia.</li>
+                            <li><strong>Opción orgánica:</strong> Productos certificados para agricultura ecológica.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="aplicacion-pane" role="tabpanel" aria-labelledby="tab-aplicacion" hidden>
+                        <h2>Recomendaciones de Aplicación</h2>
+                        <p>Para obtener los mejores resultados con nuestros fertilizantes, sigue estas pautas:</p>
+                        <ol>
+                            <li><strong>Dosis adecuada:</strong> Sigue las recomendaciones según cultivo, etapa y análisis de suelo.</li>
+                            <li><strong>Momento oportuno:</strong> Aplica en los momentos clave de demanda nutricional.</li>
+                            <li><strong>Método de aplicación:</strong> Al suelo, foliar o fertirriego según el producto.</li>
+                            <li><strong>Condiciones ambientales:</strong> Evita aplicar con lluvia inminente o temperaturas extremas.</li>
+                            <li><strong>Equipo adecuado:</strong> Usa equipos bien calibrados para distribución uniforme.</li>
+                        </ol>
+                        <p>Para fertilizantes granulados, incorpora ligeramente al suelo para evitar pérdidas por volatilización.</p>
+                    </div>
+                    <div class="tab-pane" id="seguridad-pane" role="tabpanel" aria-labelledby="tab-seguridad" hidden>
+                        <h2>Precauciones y Seguridad</h2>
+                        <p>El manejo seguro de fertilizantes es esencial para proteger al aplicador, los cultivos y el medio ambiente:</p>
+                        <div class="safety-grid">
+                            <div class="safety-item">
+                                <span class="icon" aria-hidden="true">🧤</span>
+                                <h4>Protección Personal</h4>
+                                <p>Usa guantes, mascarilla y gafas al manipular fertilizantes concentrados.</p>
+                            </div>
+                            <div class="safety-item">
+                                <span class="icon" aria-hidden="true">🌱</span>
+                                <h4>Dosis Correctas</h4>
+                                <p>Evita excesos que puedan dañar los cultivos o contaminar el suelo.</p>
+                            </div>
+                            <div class="safety-item">
+                                <span class="icon" aria-hidden="true">💧</span>
+                                <h4>Almacenamiento</h4>
+                                <p>Guarda en lugar seco, separado de alimentos y fuera del alcance de niños.</p>
+                            </div>
+                            <div class="safety-item">
+                                <span class="icon" aria-hidden="true">🚫</span>
+                                <h4>Primeros Auxilios</h4>
+                                <p>En caso de contacto, lava con abundante agua. Si se ingiere, busca atención médica.</p>
+                            </div>
+                        </div>
+                        <p>Siempre lee y sigue las instrucciones de la etiqueta del producto antes de usarlo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="icon" aria-hidden="true">📞</i> +591 123 4567</p>
+                <p><i class="icon" aria-hidden="true">✉️</i> info@agropecuariajara.com</p>
+                <p><i class="icon" aria-hidden="true">📍</i> Av. Principal #123, Ciudad</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horario de Atención</h3>
+                <p>Lunes a Viernes: 8:00 - 18:00</p>
+                <p>Sábado: 8:00 - 12:00</p>
+                <p>Domingo: Cerrado</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../login.html">Mi Cuenta</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Agropecuaria Jara. Todos los derechos reservados.</p>
+            <p>Escuela Militar de Ingeniería - Unidad Académica del Trópico</p>
+        </div>
+    </footer>
+
+    <script src="../js/categoria.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tipoFertilizanteSelect = document.getElementById('tipo-fertilizante');
+            const presentacionSelect = document.getElementById('presentacion');
+            const filterButton = document.querySelector('.filter-btn');
+            const resetButton = document.querySelector('.reset-btn');
+            const productosGrid = document.getElementById('productos-grid');
+            const productCards = productosGrid.querySelectorAll('.producto-card');
+
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            function applyFilters() {
+                const selectedTipo = tipoFertilizanteSelect.value;
+                const selectedPresentacion = presentacionSelect.value;
+
+                productCards.forEach(card => {
+                    const cardTipo = card.dataset.tipo;
+                    const cardPresentacion = card.dataset.presentacion;
+
+                    const matchesTipo = selectedTipo === 'todos' || cardTipo === selectedTipo;
+                    const matchesPresentacion = selectedPresentacion === 'todos' || cardPresentacion === selectedPresentacion;
+
+                    if (matchesTipo && matchesPresentacion) {
+                        card.style.display = ''; // Muestra el producto
+                    } else {
+                        card.style.display = 'none'; // Oculta el producto
+                    }
+                });
+            }
+
+            filterButton.addEventListener('click', applyFilters);
+            resetButton.addEventListener('click', () => {
+                tipoFertilizanteSelect.value = 'todos';
+                presentacionSelect.value = 'todos';
+                applyFilters();
+            });
+
+            // Implementación de pestañas
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remover 'active' de todos los botones y ocultar todos los paneles
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-selected', 'false');
+                    });
+                    tabPanes.forEach(pane => {
+                        pane.classList.remove('active');
+                        pane.setAttribute('hidden', 'true');
+                    });
+
+                    // Añadir 'active' al botón clicado y mostrar el panel correspondiente
+                    button.classList.add('active');
+                    button.setAttribute('aria-selected', 'true');
+                    const targetTabId = button.dataset.tab + '-pane';
+                    document.getElementById(targetTabId).classList.add('active');
+                    document.getElementById(targetTabId).removeAttribute('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

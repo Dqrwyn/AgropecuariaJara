@@ -1,0 +1,456 @@
+/* registro.css */
+
+/* Variables CSS para colores y fuentes */
+:root {
+    --primary-color: #4CAF50; /* Verde principal, como el de Agropecuaria Jara */
+    --primary-dark: #388E3C; /* Verde más oscuro para detalles */
+    --secondary-color: #FFA726; /* Naranja para acentos o advertencias */
+    --text-color: #333; /* Color de texto principal */
+    --text-light: #666; /* Color de texto secundario */
+    --background-light: #f0f2f5; /* Fondo general de la página */
+    --card-background: #fff; /* Fondo de la tarjeta de formulario */
+    --border-color: #ddd; /* Color de borde para inputs y elementos */
+    --error-color: #D32F2F; /* Rojo para mensajes de error */
+    --success-color: #2E7D32; /* Verde para mensajes de éxito */
+    --font-family: 'Arial', sans-serif; /* Fuente general, limpia y legible */
+    --border-radius: 8px; /* Radio de borde para elementos redondeados */
+    --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra para tarjetas */
+    --transition-speed: 0.3s ease; /* Velocidad de transición para efectos */
+}
+
+/* --- Estilos Base --- */
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column; /* Organiza header, main, footer verticalmente */
+    min-height: 100vh;
+    box-sizing: border-box; /* Asegura que padding y border no aumenten el tamaño total */
+}
+
+/* --- Encabezado de la Página --- */
+.register-header-page {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 5px solid var(--primary-dark);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Asegura que esté sobre otros elementos si hay scroll */
+}
+
+.register-header-page .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    transition: opacity var(--transition-speed);
+}
+
+.register-header-page .logo-link:hover {
+    opacity: 0.9;
+}
+
+.register-header-page .logo {
+    margin-right: 10px;
+    border-radius: 50%; /* Si el logo es circular */
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    object-fit: contain; /* Asegura que la imagen se ajuste */
+}
+
+.register-header-page h1 {
+    margin: 0;
+    font-size: 1.6em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* --- Contenedor Principal del Formulario --- */
+.register-container {
+    flex-grow: 1; /* Permite que el contenedor principal ocupe el espacio restante */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+/* --- Tarjeta del Formulario --- */
+.register-form-card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 40px;
+    max-width: 500px; /* Ancho máximo de la tarjeta */
+    width: 100%; /* Ocupa todo el ancho disponible hasta el max-width */
+    box-sizing: border-box;
+    position: relative; /* Para posicionar el loader si se desea superponer */
+}
+
+.register-card-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.register-card-header h1 {
+    font-size: 2.2em;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espacio entre el ícono y el texto */
+}
+
+.register-card-header h1 .fas {
+    color: var(--primary-color);
+}
+
+.register-card-header p {
+    font-size: 1.05em;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* --- Grupos de Formulario --- */
+.form-group {
+    margin-bottom: 25px;
+    position: relative; /* Para el posicionamiento de mensajes de error */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 0.95em;
+}
+
+.form-group .required {
+    color: var(--error-color); /* Color rojo para asteriscos requeridos */
+    margin-left: 4px;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon .fas,
+.input-with-icon .far { /* Para el ojo de la contraseña */
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 1.1em;
+    pointer-events: none; /* Asegura que el ícono no interfiera con el input click */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px 12px 45px; /* Espacio extra para el ícono */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2); /* Sombra de enfoque */
+}
+
+/* Estilo para campos inválidos */
+.form-group input.invalid {
+    border-color: var(--error-color);
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
+}
+
+.input-hint {
+    font-size: 0.85em;
+    color: var(--text-light);
+    margin-top: 5px;
+    display: block;
+}
+
+.error-message {
+    font-size: 0.85em;
+    color: var(--error-color);
+    margin-top: 5px;
+    display: block;
+    text-align: left;
+    height: 1.2em; /* Mantiene el espacio para evitar saltos de layout */
+}
+
+/* Toggle de Contraseña */
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-light);
+    font-size: 1.1em;
+    padding: 5px;
+    transition: color var(--transition-speed);
+}
+
+.toggle-password:hover {
+    color: var(--primary-dark);
+}
+
+/* Términos y Condiciones */
+.terms-group {
+    display: flex;
+    align-items: flex-start; /* Alinea el texto con la casilla de verificación */
+    margin-bottom: 30px;
+}
+
+.terms-group input[type="checkbox"] {
+    margin-right: 10px;
+    min-width: 18px; /* Tamaño mínimo para el checkbox */
+    min-height: 18px;
+    accent-color: var(--primary-color); /* Color del checkbox en algunos navegadores */
+    cursor: pointer;
+    margin-top: 2px; /* Alineación vertical con el texto */
+}
+
+/* Estilo para checkbox inválido */
+.terms-group input[type="checkbox"].invalid {
+    outline: 2px solid var(--error-color); /* Outline es mejor para checkboxes */
+    outline-offset: 2px; /* Espacio entre el borde original y el outline */
+}
+
+.terms-group label {
+    margin-bottom: 0; /* Elimina el margen inferior del label dentro de flex */
+    font-weight: normal;
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+.terms-group label a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color var(--transition-speed);
+}
+
+.terms-group label a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* --- Botón de Enviar --- */
+.btn-submit {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    border-radius: var(--border-radius);
+    font-size: 1.15em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform 0.2s ease, box-shadow var(--transition-speed);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espacio entre ícono y texto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-submit .fas.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* --- Área de Feedback (mensajes y loader) --- */
+.form-feedback-area {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.loading-indicator,
+.feedback-message {
+    padding: 12px;
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    font-size: 0.95em;
+    font-weight: bold;
+    display: none; /* Oculto por defecto, JS lo muestra */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.loading-indicator {
+    background-color: #e3f2fd; /* Azul muy claro */
+    color: #2196F3; /* Azul para el texto */
+    border: 1px solid #90CAF9;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.feedback-message.error-message {
+    background-color: #ffebee;
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+}
+
+.feedback-message.success-message {
+    background-color: #e8f5e9;
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+/* --- Enlace a Iniciar Sesión --- */
+.login-link {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.95em;
+    border-top: 1px solid var(--border-color);
+    padding-top: 25px;
+}
+
+.login-link p {
+    margin: 0;
+}
+
+.login-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color var(--transition-speed);
+}
+
+.login-link a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* --- Pie de Página --- */
+.register-footer {
+    background-color: var(--primary-dark);
+    color: #fff;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 0.85em;
+    border-top: 5px solid var(--primary-color);
+}
+
+.register-footer p {
+    margin: 5px 0;
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 768px) {
+    .register-header-page {
+        padding: 10px 20px;
+    }
+
+    .register-header-page h1 {
+        font-size: 1.4em;
+    }
+
+    .register-container {
+        padding: 20px 15px;
+    }
+
+    .register-form-card {
+        padding: 30px 25px;
+        border-radius: 0; /* Sin bordes redondeados en móviles para una apariencia de "app" */
+        box-shadow: none; /* Eliminar sombra en móviles */
+    }
+
+    .register-card-header h1 {
+        font-size: 1.8em;
+    }
+
+    .register-card-header p {
+        font-size: 0.95em;
+    }
+
+    .form-group input {
+        padding: 10px 12px 10px 40px; /* Ajuste para ícono y texto */
+    }
+
+    .btn-submit {
+        padding: 12px 20px;
+        font-size: 1.05em;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-header-page .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .register-header-page h1 {
+        font-size: 1.2em;
+    }
+
+    .register-card-header h1 {
+        font-size: 1.5em;
+    }
+
+    .register-form-card {
+        padding: 25px 20px;
+    }
+
+    .form-group label {
+        font-size: 0.9em;
+    }
+
+    .input-hint,
+    .error-message,
+    .feedback-message,
+    .login-link p {
+        font-size: 0.8em;
+    }
+
+    .terms-group label {
+        font-size: 0.85em;
+    }
+}

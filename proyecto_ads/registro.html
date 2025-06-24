@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Registro de nuevo usuario en Agropecuaria Jara">
+    <title>Registro | Agropecuaria Jara</title>
+    <link rel="stylesheet" href="/proyecto_ads/registro.css">
+    <link rel="icon" href="agrojaralogo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <header class="register-header-page">
+        <a href="/proyecto_ads/index.html" class="logo-link" aria-label="Volver al inicio">
+            <img src="agrojaralogo.png" alt="Agropecuaria Jara" class="logo" width="60" height="60">
+            <h1>Agropecuaria Jara</h1>
+        </a>
+    </header>
+
+    <main class="register-container">
+        <section class="register-form-card">
+            <div class="register-card-header">
+                <h1><i class="fas fa-user-plus"></i> Crear Cuenta</h1>
+                <p>Únete a Agropecuaria Jara y accede a todos nuestros servicios</p>
+            </div>
+
+            <form id="registerForm" novalidate>
+                <div class="form-group">
+                    <label for="fullName">Nombre Completo <span class="required">*</span></label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="fullName" name="fullName" required placeholder="Ej: Juan Pérez" pattern="[A-Za-záéíóúñÁÉÍÓÚÑ\s]{3,}" aria-describedby="fullName-hint fullName-error">
+                    </div>
+                    <small class="input-hint" id="fullName-hint">Mínimo 3 caracteres, solo letras y espacios.</small>
+                    <small class="error-message" id="fullName-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico <span class="required">*</span></label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" required placeholder="tucorreo@ejemplo.com" aria-describedby="email-error">
+                    </div>
+                    <small class="error-message" id="email-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña <span class="required">*</span></label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" required placeholder="Mínimo 6 caracteres" minlength="6" aria-describedby="password-hint password-error">
+                        <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                    <small class="input-hint" id="password-hint">La contraseña debe tener al menos 6 caracteres.</small>
+                    <small class="error-message" id="password-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Contraseña <span class="required">*</span></label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Repite tu contraseña" aria-describedby="confirmPassword-error">
+                        <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                    <small class="error-message" id="confirmPassword-error"></small>
+                </div>
+
+                <div class="form-group terms-group">
+                    <input type="checkbox" id="terms" name="terms" required aria-describedby="terms-error">
+                    <label for="terms">Acepto los <a href="terminos.html" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a> y la <a href="privacidad.html" target="_blank" rel="noopener noreferrer">Política de Privacidad</a> <span class="required">*</span></label>
+                    <small class="error-message" id="terms-error"></small>
+                </div>
+
+                <button type="submit" class="btn-submit" id="registerBtn">
+                    <i class="fas fa-user-check"></i> Registrarse
+                </button>
+
+                <div class="form-feedback-area">
+                    <div class="loading-indicator" id="loader" role="status" aria-live="polite">
+                        <div class="spinner"></div>
+                        <span>Creando tu cuenta...</span>
+                    </div>
+                    <div class="feedback-message error-message" id="global-error-message" role="alert"></div>
+                    <div class="feedback-message success-message" id="global-success-message" role="status"></div>
+                </div>
+            </form>
+
+            <div class="login-link">
+                <p>¿Ya tienes una cuenta? <a href="/proyecto_ads/login.html">Inicia sesión aquí</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="register-footer">
+        <p>&copy; 2023 Agropecuaria Jara. Todos los derechos reservados.</p>
+        <p>Escuela Militar de Ingeniería - Unidad Académica del Trópico</p>
+    </footer>
+
+    <script type="module">
+        // Importa las funciones necesarias
+        import {
+            auth,
+            db,
+            createUserWithEmailAndPassword,
+            doc,
+            setDoc,
+            onAuthStateChanged,
+            fetchSignInMethodsForEmail
+        } from './firebase-config.js';
+
+        // Elementos del DOM
+        const registerForm = document.getElementById('registerForm');
+        const fullNameInput = document.getElementById('fullName');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const termsCheckbox = document.getElementById('terms');
+        const registerBtn = document.getElementById('registerBtn');
+        const loader = document.getElementById('loader');
+        const globalErrorMessage = document.getElementById('global-error-message');
+        const globalSuccessMessage = document.getElementById('global-success-message');
+
+        // Mensajes de error
+        const fullNameError = document.getElementById('fullName-error');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+        const confirmPasswordError = document.getElementById('confirmPassword-error');
+        const termsError = document.getElementById('terms-error');
+
+        // Función para mostrar feedback
+        function showFeedback(message, type = 'error') {
+            if (type === 'error') {
+                globalErrorMessage.textContent = message;
+                globalErrorMessage.style.display = 'block';
+                globalSuccessMessage.style.display = 'none';
+            } else {
+                globalSuccessMessage.textContent = message;
+                globalSuccessMessage.style.display = 'block';
+                globalErrorMessage.style.display = 'none';
+            }
+        }
+
+        // Limpiar errores
+        function clearFieldErrors() {
+            [fullNameError, emailError, passwordError, confirmPasswordError, termsError].forEach(el => {
+                el.textContent = '';
+            });
+            [fullNameInput, emailInput, passwordInput, confirmPasswordInput, termsCheckbox].forEach(el => {
+                el.classList.remove('invalid');
+            });
+            showFeedback('', 'info');
+        }
+
+        // Estado de carga
+        function setButtonLoading(isLoading) {
+            registerBtn.disabled = isLoading;
+            loader.style.display = isLoading ? 'flex' : 'none';
+            registerBtn.innerHTML = isLoading 
+                ? '<i class="fas fa-spinner fa-spin"></i> Registrando...' 
+                : '<i class="fas fa-user-check"></i> Registrarse';
+        }
+
+        // Toggle para mostrar contraseña
+        document.querySelectorAll('.toggle-password').forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                const icon = this.querySelector('i');
+                const isPassword = input.type === 'password';
+                
+                input.type = isPassword ? 'text' : 'password';
+                icon.classList.toggle('fa-eye', !isPassword);
+                icon.classList.toggle('fa-eye-slash', isPassword);
+            });
+        });
+
+        // Validar formulario
+        function validateForm() {
+            clearFieldErrors();
+            let isValid = true;
+
+            // Validar nombre completo
+            const fullName = fullNameInput.value.trim();
+            if (!fullName) {
+                fullNameError.textContent = 'El nombre completo es requerido';
+                fullNameInput.classList.add('invalid');
+                isValid = false;
+            } else if (fullName.length < 3) {
+                fullNameError.textContent = 'Mínimo 3 caracteres';
+                fullNameInput.classList.add('invalid');
+                isValid = false;
+            }
+
+            // Validar email
+            const email = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email) {
+                emailError.textContent = 'El email es requerido';
+                emailInput.classList.add('invalid');
+                isValid = false;
+            } else if (!emailRegex.test(email)) {
+                emailError.textContent = 'Email no válido';
+                emailInput.classList.add('invalid');
+                isValid = false;
+            }
+
+            // Validar contraseña
+            const password = passwordInput.value;
+            if (!password) {
+                passwordError.textContent = 'La contraseña es requerida';
+                passwordInput.classList.add('invalid');
+                isValid = false;
+            } else if (password.length < 6) {
+                passwordError.textContent = 'Mínimo 6 caracteres';
+                passwordInput.classList.add('invalid');
+                isValid = false;
+            }
+
+            // Validar confirmación
+            const confirmPassword = confirmPasswordInput.value;
+            if (!confirmPassword) {
+                confirmPasswordError.textContent = 'Confirma tu contraseña';
+                confirmPasswordInput.classList.add('invalid');
+                isValid = false;
+            } else if (password !== confirmPassword) {
+                confirmPasswordError.textContent = 'Las contraseñas no coinciden';
+                confirmPasswordInput.classList.add('invalid');
+                isValid = false;
+            }
+
+            // Validar términos
+            if (!termsCheckbox.checked) {
+                termsError.textContent = 'Debes aceptar los términos';
+                termsCheckbox.classList.add('invalid');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // Manejar registro
+        async function handleRegistration(email, password, fullName) {
+            try {
+                // Verificar si el email ya existe
+                const methods = await fetchSignInMethodsForEmail(auth, email);
+                if (methods.length > 0) {
+                    throw { code: 'auth/email-already-in-use' };
+                }
+
+                // Crear usuario en Authentication
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                // Guardar datos adicionales en Firestore
+                await setDoc(doc(db, "users", user.uid), {
+                    fullName: fullName,
+                    email: email,
+                    createdAt: new Date(),
+                    role: "customer",
+                    profileCompleted: false
+                });
+
+                // Éxito
+                showFeedback('¡Registro exitoso! Redirigiendo...', 'success');
+                setTimeout(() => {
+                    window.location.href = '/proyecto_ads/dashboard.html';
+                }, 2000);
+
+            } catch (error) {
+                console.error('Error en registro:', error);
+                handleRegistrationError(error);
+                return Promise.reject(error);
+            }
+        }
+
+        // Manejar errores de registro
+        function handleRegistrationError(error) {
+            let errorMessage = 'Error al registrar. Intenta nuevamente.';
+            
+            switch (error.code) {
+                case 'auth/email-already-in-use':
+                    errorMessage = 'Este email ya está registrado.';
+                    emailInput.classList.add('invalid');
+                    emailError.textContent = errorMessage;
+                    break;
+                case 'auth/invalid-email':
+                    errorMessage = 'Email no válido.';
+                    emailInput.classList.add('invalid');
+                    emailError.textContent = errorMessage;
+                    break;
+                case 'auth/weak-password':
+                    errorMessage = 'La contraseña debe tener al menos 6 caracteres.';
+                    passwordInput.classList.add('invalid');
+                    passwordError.textContent = errorMessage;
+                    break;
+                default:
+                    console.error('Error desconocido:', error);
+            }
+            
+            showFeedback(errorMessage, 'error');
+        }
+
+        // Evento de submit
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                showFeedback('Por favor, corrige los errores en el formulario.', 'error');
+                return;
+            }
+
+            setButtonLoading(true);
+            
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            const fullName = fullNameInput.value.trim();
+
+            await handleRegistration(email, password, fullName)
+                .catch(() => {}) // Manejo de errores ya hecho en handleRegistrationError
+                .finally(() => setButtonLoading(false));
+        });
+
+        // Verificar si el usuario ya está autenticado
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log('Usuario ya autenticado, redirigiendo...');
+                window.location.href = '/proyecto_ads/dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Repuestos agrícolas originales en Agropecuaria Jara - Piezas para maquinaria">
+    <title>Repuestos | Agropecuaria Jara</title>
+    <link rel="stylesheet" href="/proyecto_ads/styles.css">
+    <link rel="stylesheet" href="/proyecto_ads/categoria.css">
+    <link rel="icon" href="../agrojaralogo.png" type="image/png">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="../agrojaralogo.png" alt="Agropecuaria Jara" class="logo" width="60" height="60">
+            <h1>Agropecuaria Jara</h1>
+        </div>
+        <div class="header-right">
+            <form role="search" class="search-form">
+                <input type="search" placeholder="Buscar repuestos..." class="search-bar" aria-label="Buscar productos">
+                <button type="submit" class="search-button" aria-label="Buscar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </form>
+            <a href="../login.html" class="login-btn">Iniciar Sesión</a>
+        </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../Herbicidas/herbicidas.html">Herbicidas</a></li>
+            <li><a href="../Insecticidas/insecticidas.html">Insecticidas</a></li>
+            <li><a href="../Fungicidas/fungicidas.html">Fungicidas</a></li>
+            <li><a href="../Fertilizantes/fertilizantes.html">Fertilizantes</a></li>
+            <li><a href="../Herramientas/herramientas.html">Herramientas</a></li>
+            <li><a href="../Repuestos/repuestos.html" aria-current="page">Repuestos</a></li>
+            <li><a href="../Otros/otros.html">Otros</a></li>
+        </ul>
+    </nav>
+
+    <main class="categoria-container">
+        <div class="category-header">
+            <div class="category-hero">
+                <h1>Repuestos Agrícolas</h1>
+                <p>Piezas originales y de calidad para mantener tu maquinaria en óptimas condiciones</p>
+            </div>
+            <div class="category-filter">
+                <div class="filter-group">
+                    <label for="tipo-repuesto">Tipo de Repuesto:</label>
+                    <select id="tipo-repuesto">
+                        <option value="todos">Todos</option>
+                        <option value="motor">Motor</option>
+                        <option value="sistema-riego">Sistema de Riego</option>
+                        <option value="fumigadoras">Fumigadoras</option>
+                        <option value="tractores">Tractores</option>
+                        <option value="cosechadoras">Cosechadoras</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="marca-repuesto">Marca de Maquinaria:</label>
+                    <select id="marca-repuesto">
+                        <option value="todos">Todos</option>
+                        <option value="john-deere">John Deere</option>
+                        <option value="new-holland">New Holland</option>
+                        <option value="massey-ferguson">Massey Ferguson</option>
+                        <option value="case">Case IH</option>
+                        <option value="kubota">Kubota</option>
+                    </select>
+                </div>
+                <button class="filter-btn">Filtrar</button>
+                <button class="reset-btn">Reiniciar</button>
+            </div>
+        </div>
+
+        <section class="productos-categoria">
+            <div class="productos-grid">
+                <!-- Producto 1 -->
+                <article class="producto-card">
+                    <div class="producto-badge">Original</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Repuestos/filtrodemotor.jpg" alt="Filtro de Combustible" loading="lazy">
+                        <button class="quick-view">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Filtro de Combustible JD</h3>
+                        <p class="producto-desc">Filtro original John Deere para tractores serie 5000 y 6000.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 180</span>
+                            <span class="precio-anterior">Bs 200</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(15)</span>
+                        </div>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="producto-card">
+                    <div class="producto-badge">Oferta</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Repuestos/bomba.jpg" alt="Bomba de Agua" loading="lazy">
+                        <button class="quick-view">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Bomba de Agua NH</h3>
+                        <p class="producto-desc">Bomba de agua original para New Holland T7, T8 y T9.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 850</span>
+                            <span class="precio-anterior">Bs 950</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(8)</span>
+                        </div>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="producto-card">
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Repuestos/boquilla.webp" alt="Boquilla Fumigadora" loading="lazy">
+                        <button class="quick-view">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Boquilla Fumigadora TeeJet</h3>
+                        <p class="producto-desc">Boquilla de abanico plano TP8004 para fumigadoras.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 45</span>
+                            <span class="precio-anterior">Bs 50</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(22)</span>
+                        </div>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="producto-card">
+                    <div class="producto-badge">Nuevo</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Repuestos/correadetransmision.jpg" alt="Correa de Transmisión" loading="lazy">
+                        <button class="quick-view">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Correa de Transmisión MF</h3>
+                        <p class="producto-desc">Correa original Massey Ferguson para modelos 290 y 390.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 320</span>
+                            <span class="precio-anterior">Bs 350</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(12)</span>
+                        </div>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 5 -->
+                <article class="producto-card">
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Repuestos/rodamiento.jpg" alt="Rodamiento" loading="lazy">
+                        <button class="quick-view">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Rodamiento para Cosechadora</h3>
+                        <p class="producto-desc">Rodamiento SKF para cosechadoras Case IH serie 2100.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 420</span>
+                            <span class="precio-anterior">Bs 450</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(9)</span>
+                        </div>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 6 -->
+                <article class="producto-card">
+                    <div class="producto-badge">Kit</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Repuestos/kitdefiltro.jpg" alt="Kit de Filtros" loading="lazy">
+                        <button class="quick-view">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Kit de Filtros Kubota</h3>
+                        <p class="producto-desc">Kit completo de filtros (aceite, aire, combustible) para tractores M7001.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 580</span>
+                            <span class="precio-anterior">Bs 650</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(17)</span>
+                        </div>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="category-info">
+            <div class="info-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="descripcion">Descripción</button>
+                    <button class="tab-btn" data-tab="compatibilidad">Compatibilidad</button>
+                    <button class="tab-btn" data-tab="garantia">Garantía</button>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="descripcion">
+                        <h3>Repuestos Originales y de Calidad</h3>
+                        <p>En Agropecuaria Jara ofrecemos repuestos originales y alternativos de alta calidad para mantener tu maquinaria agrícola funcionando al máximo rendimiento.</p>
+                        <p>Nuestros repuestos son seleccionados cuidadosamente para garantizar compatibilidad, durabilidad y rendimiento en las condiciones más exigentes del campo.</p>
+                        <ul>
+                            <li><strong>Repuestos originales:</strong> Piezas genuinas de los principales fabricantes.</li>
+                            <li><strong>Alternativos de calidad:</strong> Opciones de alta calidad cuando el original no está disponible.</li>
+                            <li><strong>Amplio stock:</strong> Contamos con inventario para las principales marcas y modelos.</li>
+                            <li><strong>Asesoría técnica:</strong> Nuestro personal te ayudará a encontrar el repuesto correcto.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="compatibilidad">
+                        <h3>Información de Compatibilidad</h3>
+                        <p>Para asegurarte de que el repuesto es compatible con tu maquinaria:</p>
+                        <ol>
+                            <li><strong>Modelo exacto:</strong> Ten a mano el modelo completo de tu máquina.</li>
+                            <li><strong>Número de serie:</strong> Algunos repuestos varían según el año de fabricación.</li>
+                            <li><strong>Número de parte:</strong> Si tienes el número de parte original, es la mejor referencia.</li>
+                            <li><strong>Fotos:</strong> En caso de duda, fotos de la pieza a reemplazar pueden ayudar.</li>
+                            <li><strong>Consultar:</strong> Nuestros técnicos pueden verificar compatibilidad antes de comprar.</li>
+                        </ol>
+                        <p>Para repuestos críticos como piezas de motor, siempre recomendamos usar originales o alternativos de marcas reconocidas.</p>
+                    </div>
+                    <div class="tab-pane" id="garantia">
+                        <h3>Política de Garantía</h3>
+                        <p>Todos nuestros repuestos cuentan con garantía contra defectos de fabricación:</p>
+                        <div class="garantia-grid">
+                            <div class="garantia-item">
+                                <i class="icon">🔧</i>
+                                <h4>Repuestos Originales</h4>
+                                <p>12 meses de garantía en piezas y mano de obra si la instalación es con nosotros.</p>
+                            </div>
+                            <div class="garantia-item">
+                                <i class="icon">⏳</i>
+                                <h4>Repuestos Alternativos</h4>
+                                <p>6 meses de garantía en piezas (no incluye mano de obra).</p>
+                            </div>
+                            <div class="garantia-item">
+                                <i class="icon">📝</i>
+                                <h4>Requisitos</h4>
+                                <p>Presentar factura de compra y pieza en su empaque original.</p>
+                            </div>
+                            <div class="garantia-item">
+                                <i class="icon">⚠️</i>
+                                <h4>Exclusiones</h4>
+                                <p>No cubre daños por instalación incorrecta o mal uso.</p>
+                            </div>
+                        </div>
+                        <p>Para hacer válida la garantía, presenta el repuesto en nuestra tienda con la factura de compra y el diagnóstico técnico.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="icon">📞</i> +591 123 4567</p>
+                <p><i class="icon">✉️</i> info@agropecuariajara.com</p>
+                <p><i class="icon">📍</i> Av. Principal #123, Ciudad</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horario de Atención</h3>
+                <p>Lunes a Viernes: 8:00 - 18:00</p>
+                <p>Sábado: 8:00 - 12:00</p>
+                <p>Domingo: Cerrado</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../login.html">Mi Cuenta</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Agropecuaria Jara. Todos los derechos reservados.</p>
+            <p>Escuela Militar de Ingeniería - Unidad Académica del Trópico</p>
+        </div>
+    </footer>
+
+    <script src="../js/categoria.js"></script>
+</body>
+</html>

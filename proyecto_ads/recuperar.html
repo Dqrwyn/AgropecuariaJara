@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recuperación de contraseña - Agropecuaria Jara">
+    <title>Recuperar Contraseña | Agropecuaria Jara</title>
+    <link rel="stylesheet" href="recuperar.css">
+    <link rel="icon" href="agrojaralogo.png" type="image/png">
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="recovery-container">
+        <header class="recovery-header">
+            <a href="index.html" class="logo-link">
+                <img src="agrojaralogo.png" alt="Agropecuaria Jara" class="logo" width="70" height="70">
+                <h1>Agropecuaria Jara</h1>
+            </a>
+        </header>
+
+        <main class="recovery-main">
+            <section class="recovery-card">
+                <div class="recovery-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h2>Recuperar Contraseña</h2>
+                <p>Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</p>
+                
+                <form id="recoveryForm">
+                    <div class="form-group">
+                        <label for="recoveryEmail">Correo Electrónico</label>
+                        <input type="email" id="recoveryEmail" name="email" required 
+                               placeholder="tucorreo@ejemplo.com">
+                    </div>
+                    
+                    <button type="submit" class="btn-submit" id="recoveryBtn">
+                        Enviar Enlace
+                    </button>
+                    
+                    <div class="form-footer">
+                        <div class="loading-indicator" id="loader">
+                            <div class="spinner"></div>
+                            <span>Enviando correo...</span>
+                        </div>
+                        <div class="error-message" id="error-message"></div>
+                        <div class="success-message" id="success-message"></div>
+                    </div>
+                </form>
+                
+                <div class="back-to-login">
+                    <a href="login.html"><i class="fas fa-arrow-left"></i> Volver a Iniciar Sesión</a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="recovery-footer">
+            <p>&copy; 2023 Agropecuaria Jara. Todos los derechos reservados.</p>
+            <p>Escuela Militar de Ingeniería - Unidad Académica del Trópico</p>
+        </footer>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="js/firebase-config.js"></script>
+    
+    <script type="module">
+        // Importaciones
+        import { resetPassword } from './js/auth.js';
+
+        // Elementos del DOM
+        const recoveryForm = document.getElementById('recoveryForm');
+        const errorMessage = document.getElementById('error-message');
+        const successMessage = document.getElementById('success-message');
+        const loader = document.getElementById('loader');
+        const recoveryBtn = document.getElementById('recoveryBtn');
+
+        // Manejar envío del formulario
+        recoveryForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = recoveryForm.email.value.trim();
+            
+            // Resetear mensajes
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            
+            // Validación básica
+            if (!email) {
+                showError("Por favor ingresa tu correo electrónico");
+                return;
+            }
+            
+            // Mostrar loader y deshabilitar botón
+            recoveryBtn.disabled = true;
+            loader.style.display = 'flex';
+            
+            try {
+                const result = await resetPassword(email);
+                
+                if (result.success) {
+                    showSuccess(result.message);
+                    recoveryForm.reset();
+                } else {
+                    showError(result.message);
+                }
+            } catch (error) {
+                showError("Ocurrió un error inesperado. Intenta nuevamente.");
+                console.error("Error en recuperación:", error);
+            } finally {
+                recoveryBtn.disabled = false;
+                loader.style.display = 'none';
+            }
+        });
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            successMessage.style.display = 'none';
+        }
+
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

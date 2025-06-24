@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Agropecuaria Jara</title>
+    <link rel="stylesheet" href="/proyecto_ads/dashboard.css">
+    <link rel="icon" href="agrojaralogo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="logo-section">
+            <img src="agrojaralogo.png" alt="Logo Agropecuaria Jara" width="50">
+            <h1>Agropecuaria Jara</h1>
+        </div>
+        <div class="user-info">
+            <span id="userNameDisplay">Cargando usuario...</span>
+            <button id="logoutBtn" title="Cerrar sesión"><i class="fas fa-sign-out-alt"></i> Salir</button>
+        </div>
+    </header>
+
+    <main class="dashboard-content">
+        <section class="welcome-section">
+            <h2>Bienvenido/a</h2>
+            <p>Estás en tu panel principal. Aquí podrás acceder a los servicios de Agropecuaria Jara.</p>
+        </section>
+        <!-- Puedes agregar más secciones con estadísticas, enlaces, etc. -->
+    </main>
+
+    <footer class="dashboard-footer">
+        <p>&copy; 2023 Agropecuaria Jara. Todos los derechos reservados.</p>
+        <p>Escuela Militar de Ingeniería - Unidad Académica del Trópico</p>
+    </footer>
+
+    <script type="module">
+        import {
+            auth,
+            db,
+            doc,
+            getDoc,
+            onAuthStateChanged,
+            signOut
+        } from './firebase-config.js';
+
+        const userNameDisplay = document.getElementById('userNameDisplay');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        // Verificar si el usuario está autenticado
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                try {
+                    const userDoc = await getDoc(doc(db, "users", user.uid));
+                    if (userDoc.exists()) {
+                        const data = userDoc.data();
+                        userNameDisplay.textContent = `Hola, ${data.fullName}`;
+                    } else {
+                        userNameDisplay.textContent = 'Usuario sin datos';
+                    }
+                } catch (error) {
+                    console.error("Error al obtener datos del usuario:", error);
+                    userNameDisplay.textContent = 'Error al cargar usuario';
+                }
+            } else {
+                // Usuario no autenticado, redirigir al login
+                window.location.href = "/proyecto_ads/login.html";
+            }
+        });
+
+        // Cerrar sesión
+        logoutBtn.addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+                window.location.href = "/proyecto_ads/login.html";
+            } catch (error) {
+                console.error("Error al cerrar sesión:", error);
+            }
+        });
+    </script>
+</body>
+</html>

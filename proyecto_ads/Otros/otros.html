@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encuentra una amplia variedad de otros productos agrícolas esenciales en Agropecuaria Jara, desde semillas hasta equipos de protección personal.">
+    <title>Otros Productos | Agropecuaria Jara</title>
+    <link rel="stylesheet" href="/proyecto_ads/styles.css">
+    <link rel="stylesheet" href="/proyecto_ads/categoria.css">
+    <link rel="icon" href="../agrojaralogo.png" type="image/png">
+    <link rel="preload" href="../agrojaralogo.png" as="image">
+    <link rel="preload" href="/proyecto_ads/styles.css" as="style">
+    <link rel="preload" href="/proyecto_ads/categoria.css" as="style">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="../index.html" aria-label="Ir a la página de inicio de Agropecuaria Jara">
+                <img src="../agrojaralogo.png" alt="Logotipo de Agropecuaria Jara" class="logo" width="60" height="60">
+            </a>
+            <h1>Agropecuaria Jara</h1>
+        </div>
+        <div class="header-right">
+            <form role="search" class="search-form" action="/search" method="get">
+                <label for="search-input" class="sr-only">Buscar productos</label>
+                <input type="search" id="search-input" name="q" placeholder="Buscar productos..." class="search-bar" aria-label="Buscar otros productos agrícolas">
+                <button type="submit" class="search-button" aria-label="Realizar búsqueda">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </form>
+            <a href="../login.html" class="login-btn">Iniciar Sesión</a>
+        </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../Herbicidas/herbicidas.html">Herbicidas</a></li>
+            <li><a href="../Insecticidas/insecticidas.html">Insecticidas</a></li>
+            <li><a href="../Fungicidas/fungicidas.html">Fungicidas</a></li>
+            <li><a href="../Fertilizantes/fertilizantes.html">Fertilizantes</a></li>
+            <li><a href="../Herramientas/herramientas.html">Herramientas</a></li>
+            <li><a href="../Repuestos/repuestos.html">Repuestos</a></li>
+            <li><a href="../Otros/otros.html" aria-current="page">Otros</a></li>
+        </ul>
+    </nav>
+
+    <main class="categoria-container">
+        <section class="category-header">
+            <div class="category-hero">
+                <h1>Otros Productos</h1>
+                <p>Todo lo que necesitas para tu campo en un solo lugar</p>
+            </div>
+            <div class="category-filter">
+                <div class="filter-group">
+                    <label for="tipo-producto">Categoría:</label>
+                    <select id="tipo-producto" aria-controls="productos-grid">
+                        <option value="todos">Todos</option>
+                        <option value="semillas">Semillas</option>
+                        <option value="proteccion">Protección Personal</option>
+                        <option value="accesorios">Accesorios</option>
+                        <option value="alimentacion">Alimentación Animal</option>
+                        <option value="varios">Varios</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="uso">Uso:</label>
+                    <select id="uso" aria-controls="productos-grid">
+                        <option value="todos">Todos</option>
+                        <option value="campo">Campo</option>
+                        <option value="ganado">Ganado</option>
+                        <option value="jardin">Jardín</option>
+                        <option value="invernadero">Invernadero</option>
+                    </select>
+                </div>
+                <button class="filter-btn" aria-label="Aplicar filtros de productos">Filtrar</button>
+                <button class="reset-btn" aria-label="Reiniciar filtros">Reiniciar</button>
+            </div>
+        </section>
+
+        <section class="productos-categoria">
+            <div class="productos-grid" id="productos-grid">
+                <article class="producto-card" data-categoria="semillas" data-uso="campo">
+                    <div class="producto-badge">Nuevo</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Otros/maiz.webp" alt="Semillas de Maíz Híbrido" loading="lazy" width="300" height="200">
+                        <button class="quick-view" aria-label="Vista rápida de Semillas de Maíz Híbrido">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Semillas de Maíz Híbrido</h3>
+                        <p class="producto-desc">Semillas de alto rendimiento, variedad DK 7210 VT3P, bolsa 50,000 semillas.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 1,200</span>
+                            <span class="precio-anterior">Bs 1,350</span>
+                        </div>
+                        <div class="producto-rating" role="img" aria-label="Calificación de 5 de 5 estrellas basada en 18 reseñas">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(18)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Semillas de Maíz Híbrido al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-categoria="proteccion" data-uso="campo">
+                    <div class="producto-badge">Oferta</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Otros/overol.jpg" alt="Overol de Protección" loading="lazy" width="300" height="200">
+                        <button class="quick-view" aria-label="Vista rápida de Overol de Protección">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Overol de Protección</h3>
+                        <p class="producto-desc">Overol impermeable con capucha para trabajo con agroquímicos, talla M-XL.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 150</span>
+                            <span class="precio-anterior">Bs 180</span>
+                        </div>
+                        <div class="producto-rating" role="img" aria-label="Calificación de 4 de 5 estrellas basada en 14 reseñas">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(14)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Overol de Protección al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-categoria="accesorios" data-uso="campo">
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Otros/manguera.jpeg" alt="Manguera para Riego 1" loading="lazy" width="300" height="200">
+                        <button class="quick-view" aria-label="Vista rápida de Manguera para Riego 1">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Manguera para Riego 1"</h3>
+                        <p class="producto-desc">Manguera de polietileno reforzado, 100 metros de largo, presión 6 bar.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 450</span>
+                            <span class="precio-anterior">Bs 500</span>
+                        </div>
+                        <div class="producto-rating" role="img" aria-label="Calificación de 5 de 5 estrellas basada en 22 reseñas">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(22)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Manguera para Riego al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-categoria="alimentacion" data-uso="ganado">
+                    <div class="producto-badge">Más vendido</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Otros/sal.jpg" alt="Sal Mineralizada para Ganado" loading="lazy" width="300" height="200">
+                        <button class="quick-view" aria-label="Vista rápida de Sal Mineralizada para Ganado">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Sal Mineralizada para Ganado</h3>
+                        <p class="producto-desc">Bloque de sal con minerales esenciales para bovinos, 25 kg.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 120</span>
+                            <span class="precio-anterior">Bs 140</span>
+                        </div>
+                        <div class="producto-rating" role="img" aria-label="Calificación de 4 de 5 estrellas basada en 31 reseñas">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(31)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Sal Mineralizada para Ganado al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-categoria="varios" data-uso="invernadero">
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Otros/termometro.jpeg" alt="Termómetro para Silo" loading="lazy" width="300" height="200">
+                        <button class="quick-view" aria-label="Vista rápida de Termómetro para Silo">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Termómetro para Silo</h3>
+                        <p class="producto-desc">Termómetro digital con sonda para monitoreo de temperatura en silos.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 280</span>
+                            <span class="precio-anterior">Bs 320</span>
+                        </div>
+                        <div class="producto-rating" role="img" aria-label="Calificación de 5 de 5 estrellas basada en 9 reseñas">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(9)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Termómetro para Silo al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-categoria="proteccion" data-uso="campo">
+                    <div class="producto-badge">Combo</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Otros/kitproteccion.png" alt="Kit de Protección Personal" loading="lazy" width="300" height="200">
+                        <button class="quick-view" aria-label="Vista rápida de Kit de Protección Personal">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Kit de Protección Personal</h3>
+                        <p class="producto-desc">Incluye overol, guantes, gafas y mascarilla para trabajo con agroquímicos.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 220</span>
+                            <span class="precio-anterior">Bs 280</span>
+                        </div>
+                        <div class="producto-rating" role="img" aria-label="Calificación de 4 de 5 estrellas basada en 17 reseñas">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(17)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Kit de Protección Personal al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="category-info">
+            <div class="info-tabs">
+                <div class="tabs-header" role="tablist">
+                    <button class="tab-btn active" data-tab="descripcion" role="tab" aria-selected="true" aria-controls="descripcion-pane" id="tab-descripcion">Descripción</button>
+                    <button class="tab-btn" data-tab="envios" role="tab" aria-selected="false" aria-controls="envios-pane" id="tab-envios">Envíos</button>
+                    <button class="tab-btn" data-tab="devoluciones" role="tab" aria-selected="false" aria-controls="devoluciones-pane" id="tab-devoluciones">Devoluciones</button>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="descripcion-pane" role="tabpanel" aria-labelledby="tab-descripcion">
+                        <h2>Variedad de Productos para el Campo</h2>
+                        <p>En esta sección encontrarás todos aquellos productos que no encajan en las categorías principales pero que son igualmente importantes para el trabajo agrícola y pecuario.</p>
+                        <p>Desde semillas certificadas hasta equipos de protección personal, pasando por accesorios y complementos para hacer más eficiente tu trabajo en el campo.</p>
+                        <ul>
+                            <li><strong>Semillas de calidad:</strong> Variedades seleccionadas para alto rendimiento.</li>
+                            <li><strong>Protección personal:</strong> Equipos para trabajar con seguridad.</li>
+                            <li><strong>Accesorios:</strong> Todo lo necesario para riego, almacenamiento y más.</li>
+                            <li><strong>Alimentación animal:</strong> Sales mineralizadas y complementos nutricionales.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="envios-pane" role="tabpanel" aria-labelledby="tab-envios" hidden>
+                        <h2>Política de Envíos</h2>
+                        <p>Para los productos de esta categoría aplican las siguientes condiciones de envío:</p>
+                        <div class="envios-grid">
+                            <div class="envios-item">
+                                <span class="icon" aria-hidden="true">🚚</span>
+                                <h4>Envío Estándar</h4>
+                                <p>3-5 días hábiles - Bs 25 (gratis en compras mayores a Bs 500)</p>
+                            </div>
+                            <div class="envios-item">
+                                <span class="icon" aria-hidden="true">⚡</span>
+                                <h4>Envío Express</h4>
+                                <p>1-2 días hábiles - Bs 50 (disponible solo en ciudad)</p>
+                            </div>
+                            <div class="envios-item">
+                                <span class="icon" aria-hidden="true">🏪</span>
+                                <h4>Recojo en Tienda</h4>
+                                <p>Sin costo - Disponible el mismo día si está en stock</p>
+                            </div>
+                            <div class="envios-item">
+                                <span class="icon" aria-hidden="true">📦</span>
+                                <h4>Productos Voluminosos</h4>
+                                <p>Costo adicional según tamaño y peso (consultar)</p>
+                            </div>
+                        </div>
+                        <p>Los pedidos se despachan dentro de las 24 horas hábiles luego de confirmado el pago.</p>
+                    </div>
+                    <div class="tab-pane" id="devoluciones-pane" role="tabpanel" aria-labelledby="tab-devoluciones" hidden>
+                        <h2>Política de Devoluciones</h2>
+                        <p>Nuestra política de devoluciones está diseñada para tu satisfacción:</p>
+                        <div class="devoluciones-grid">
+                            <div class="devoluciones-item">
+                                <span class="icon" aria-hidden="true">⏳</span>
+                                <h4>Plazo para Devolución</h4>
+                                <p>15 días naturales desde la recepción del producto.</p>
+                            </div>
+                            <div class="devoluciones-item">
+                                <span class="icon" aria-hidden="true">🏷️</span>
+                                <h4>Condiciones</h4>
+                                <p>Producto en estado original, con empaque y factura.</p>
+                            </div>
+                            <div class="devoluciones-item">
+                                <span class="icon" aria-hidden="true">❌</span>
+                                <h4>Excepciones</h4>
+                                <p>No aplica a semillas abiertas o productos perecederos.</p>
+                            </div>
+                            <div class="devoluciones-item">
+                                <span class="icon" aria-hidden="true">🔄</span>
+                                <h4>Proceso</h4>
+                                <p>Contacta a servicio al cliente con tu número de pedido.</p>
+                            </div>
+                        </div>
+                        <p>Nos esforzamos por garantizar tu satisfacción con cada compra.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="icon" aria-hidden="true">📞</i> +591 123 4567</p>
+                <p><i class="icon" aria-hidden="true">✉️</i> info@agropecuariajara.com</p>
+                <p><i class="icon" aria-hidden="true">📍</i> Av. Principal #123, Ciudad</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horario de Atención</h3>
+                <p>Lunes a Viernes: 8:00 - 18:00</p>
+                <p>Sábado: 8:00 - 12:00</p>
+                <p>Domingo: Cerrado</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../login.html">Mi Cuenta</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Agropecuaria Jara. Todos los derechos reservados.</p>
+            <p>Escuela Militar de Ingeniería - Unidad Académica del Trópico</p>
+        </div>
+    </footer>
+
+    <script src="../js/categoria.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tipoProductoSelect = document.getElementById('tipo-producto');
+            const usoSelect = document.getElementById('uso');
+            const filterButton = document.querySelector('.filter-btn');
+            const resetButton = document.querySelector('.reset-btn');
+            const productosGrid = document.getElementById('productos-grid');
+            const productCards = productosGrid.querySelectorAll('.producto-card');
+
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            function applyFilters() {
+                const selectedTipo = tipoProductoSelect.value;
+                const selectedUso = usoSelect.value;
+
+                productCards.forEach(card => {
+                    const cardCategoria = card.dataset.categoria;
+                    const cardUso = card.dataset.uso;
+
+                    const matchesTipo = selectedTipo === 'todos' || cardCategoria === selectedTipo;
+                    const matchesUso = selectedUso === 'todos' || cardUso === selectedUso;
+
+                    if (matchesTipo && matchesUso) {
+                        card.style.display = ''; // Muestra el producto
+                    } else {
+                        card.style.display = 'none'; // Oculta el producto
+                    }
+                });
+            }
+
+            filterButton.addEventListener('click', applyFilters);
+            resetButton.addEventListener('click', () => {
+                tipoProductoSelect.value = 'todos';
+                usoSelect.value = 'todos';
+                applyFilters();
+            });
+
+            // Implementación de pestañas
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remover 'active' de todos los botones y ocultar todos los paneles
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-selected', 'false');
+                    });
+                    tabPanes.forEach(pane => {
+                        pane.classList.remove('active');
+                        pane.setAttribute('hidden', 'true');
+                    });
+
+                    // Añadir 'active' al botón clicado y mostrar el panel correspondiente
+                    button.classList.add('active');
+                    button.setAttribute('aria-selected', 'true');
+                    const targetTabId = button.dataset.tab + '-pane';
+                    document.getElementById(targetTabId).classList.add('active');
+                    document.getElementById(targetTabId).removeAttribute('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

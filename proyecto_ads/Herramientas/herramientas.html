@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Herramientas agrícolas de calidad en Agropecuaria Jara - Equipamiento para el campo">
+    <title>Herramientas | Agropecuaria Jara</title>
+    <link rel="stylesheet" href="/proyecto_ads/styles.css">
+    <link rel="stylesheet" href="/proyecto_ads/categoria.css">
+    <link rel="icon" href="../agrojaralogo.png" type="image/png">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="../agrojaralogo.png" alt="Agropecuaria Jara" class="logo" width="60" height="60">
+            <h1>Agropecuaria Jara</h1>
+        </div>
+        <div class="header-right">
+            <form role="search" class="search-form">
+                <input type="search" placeholder="Buscar herramientas..." class="search-bar" aria-label="Buscar productos">
+                <button type="submit" class="search-button" aria-label="Buscar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </form>
+            <a href="../login.html" class="login-btn">Iniciar Sesión</a>
+        </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../Herbicidas/herbicidas.html">Herbicidas</a></li>
+            <li><a href="../Insecticidas/insecticidas.html">Insecticidas</a></li>
+            <li><a href="../Fungicidas/fungicidas.html">Fungicidas</a></li>
+            <li><a href="../Fertilizantes/fertilizantes.html">Fertilizantes</a></li>
+            <li><a href="../Herramientas/herramientas.html" aria-current="page">Herramientas</a></li>
+            <li><a href="../Repuestos/repuestos.html">Repuestos</a></li>
+            <li><a href="../Otros/otros.html">Otros</a></li>
+        </ul>
+    </nav>
+
+    <main class="categoria-container">
+        <div class="category-header">
+            <div class="category-hero">
+                <h1>Herramientas Agrícolas</h1>
+                <p>Equipamiento de calidad para hacer más eficiente tu trabajo en el campo</p>
+            </div>
+            <div class="category-filter">
+                <div class="filter-group">
+                    <label for="tipo-herramienta">Tipo de Herramienta:</label>
+                    <select id="tipo-herramienta">
+                        <option value="todos">Todos</option>
+                        <option value="manuales">Manuales</option>
+                        <option value="jardineria">Jardinería</option>
+                        <option value="riego">Riego</option>
+                        <option value="proteccion">Protección Personal</option>
+                        <option value="mecanicas">Mecánicas</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="marca">Marca:</label>
+                    <select id="marca">
+                        <option value="todos">Todos</option>
+                        <option value="truper">Truper</option>
+                        <option value="fiskars">Fiskars</option>
+                        <option value="bellota">Bellota</option>
+                        <option value="irrimac">Irrimac</option>
+                        <option value="otras">Otras</option>
+                    </select>
+                </div>
+                <button class="filter-btn">Filtrar</button>
+                <button class="reset-btn">Reiniciar</button>
+            </div>
+        </div>
+
+        <section class="productos-categoria">
+            <div class="productos-grid">
+                <!-- Producto 1 -->
+                <article class="producto-card">
+                    <div class="producto-badge">Más vendido</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Herramientas/pala-escarraman.jpg" alt="Pala Agrícola" loading="lazy">
+                        <button class="quick-view">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Pala Agrícola Truper</h3>
+                        <p class="producto-desc">Pala cuadrada de acero templado con mango de madera de alta resistencia.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 85</span>
+                            <span class="precio-anterior">Bs 95</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(42)</span>
+                        </div>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="producto-card">
+                    <div class="producto-badge">Oferta</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Herramientas/fumigadora.jpeg" alt="Mochila Fumigadora" loading="lazy">
+                        <button class="quick-view">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Mochila Fumigadora 20L</h3>
+                        <p class="producto-desc">Fumigadora de presión con lanza de bronce y válvula de seguridad.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 320</span>
+                            <span class="precio-anterior">Bs 380</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(28)</span>
+                        </div>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="producto-card">
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Herramientas/tijeras.avif" alt="Tijeras de Podar" loading="lazy">
+                        <button class="quick-view">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Tijeras de Podar Fiskars</h3>
+                        <p class="producto-desc">Tijeras profesionales para poda con hoja de acero inoxidable y mango ergonómico.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 150</span>
+                            <span class="precio-anterior">Bs 170</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(35)</span>
+                        </div>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="producto-card">
+                    <div class="producto-badge">Nuevo</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Herramientas/regadera.webp" alt="Regadera Profesional" loading="lazy">
+                        <button class="quick-view">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Regadera Profesional 10L</h3>
+                        <p class="producto-desc">Regadera de plástico resistente con roseta ajustable para diferentes flujos.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 65</span>
+                            <span class="precio-anterior">Bs 75</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(17)</span>
+                        </div>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 5 -->
+                <article class="producto-card">
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Herramientas/azada.jpg" alt="Azada Bellota" loading="lazy">
+                        <button class="quick-view">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Azada Profesional Bellota</h3>
+                        <p class="producto-desc">Azada de acero forjado con mango de fibra de vidrio antideslizante.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 120</span>
+                            <span class="precio-anterior">Bs 135</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="reviews">(29)</span>
+                        </div>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <!-- Producto 6 -->
+                <article class="producto-card">
+                    <div class="producto-badge">Combo</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Herramientas/Kit-básico-de-jardinería.jpg" alt="Kit de Herramientas" loading="lazy">
+                        <button class="quick-view">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Kit Básico de Jardinería</h3>
+                        <p class="producto-desc">Set con 5 herramientas esenciales para huerto y jardín en bolsa transportadora.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 280</span>
+                            <span class="precio-anterior">Bs 350</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="reviews">(23)</span>
+                        </div>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="category-info">
+            <div class="info-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="descripcion">Descripción</button>
+                    <button class="tab-btn" data-tab="mantenimiento">Mantenimiento</button>
+                    <button class="tab-btn" data-tab="garantia">Garantía</button>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="descripcion">
+                        <h3>Herramientas de Calidad Profesional</h3>
+                        <p>En Agropecuaria Jara ofrecemos las mejores herramientas para hacer más eficiente y cómodo tu trabajo en el campo, huerto o jardín. Nuestros productos están seleccionados por su durabilidad, ergonomía y rendimiento.</p>
+                        <p>Desde herramientas manuales básicas hasta equipos más especializados, contamos con todo lo necesario para las labores agrícolas y de jardinería.</p>
+                        <ul>
+                            <li><strong>Materiales de calidad:</strong> Aceros templados, mangos ergonómicos y diseños resistentes.</li>
+                            <li><strong>Marcas reconocidas:</strong> Trabajamos con los mejores fabricantes del mercado.</li>
+                            <li><strong>Variedad:</strong> Herramientas para preparación de suelo, poda, riego y protección personal.</li>
+                            <li><strong>Durabilidad:</strong> Productos diseñados para resistir el uso intensivo en el campo.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="mantenimiento">
+                        <h3>Cuidado y Mantenimiento</h3>
+                        <p>Para prolongar la vida útil de tus herramientas agrícolas, sigue estas recomendaciones:</p>
+                        <ol>
+                            <li><strong>Limpieza:</strong> Después de cada uso, limpia las herramientas para eliminar tierra y residuos.</li>
+                            <li><strong>Secado:</strong> Asegúrate que estén completamente secas antes de guardarlas.</li>
+                            <li><strong>Afilado:</strong> Mantén las hojas de corte afiladas para un mejor rendimiento.</li>
+                            <li><strong>Protección:</strong> Aplica aceite en partes metálicas para prevenir oxidación.</li>
+                            <li><strong>Almacenamiento:</strong> Guárdalas en lugar seco y protegido de la intemperie.</li>
+                        </ol>
+                        <p>Para herramientas mecánicas como fumigadoras, sigue siempre las instrucciones del fabricante para mantenimiento y limpieza.</p>
+                    </div>
+                    <div class="tab-pane" id="garantia">
+                        <h3>Política de Garantía</h3>
+                        <p>Todas nuestras herramientas cuentan con garantía contra defectos de fabricación:</p>
+                        <div class="garantia-grid">
+                            <div class="garantia-item">
+                                <i class="icon">🛠️</i>
+                                <h4>Herramientas Manuales</h4>
+                                <p>1 año de garantía en materiales y mano de obra.</p>
+                            </div>
+                            <div class="garantia-item">
+                                <i class="icon">⏳</i>
+                                <h4>Herramientas Mecánicas</h4>
+                                <p>6 meses de garantía en partes y mano de obra.</p>
+                            </div>
+                            <div class="garantia-item">
+                                <i class="icon">📝</i>
+                                <h4>Requisitos</h4>
+                                <p>Presentar factura de compra y producto en buen estado.</p>
+                            </div>
+                            <div class="garantia-item">
+                                <i class="icon">⚠️</i>
+                                <h4>Exclusiones</h4>
+                                <p>No cubre daños por mal uso o falta de mantenimiento.</p>
+                            </div>
+                        </div>
+                        <p>Para hacer válida la garantía, presenta el producto en nuestra tienda con la factura de compra.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="icon">📞</i> +591 123 4567</p>
+                <p><i class="icon">✉️</i> info@agropecuariajara.com</p>
+                <p><i class="icon">📍</i> Av. Principal #123, Ciudad</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horario de Atención</h3>
+                <p>Lunes a Viernes: 8:00 - 18:00</p>
+                <p>Sábado: 8:00 - 12:00</p>
+                <p>Domingo: Cerrado</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../login.html">Mi Cuenta</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Agropecuaria Jara. Todos los derechos reservados.</p>
+            <p>Escuela Militar de Ingeniería - Unidad Académica del Trópico</p>
+        </div>
+    </footer>
+
+    <script src="../js/categoria.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agropecuaria Jara - Venta de productos agrícolas de alta calidad en Bolivia: herbicidas, insecticidas, fertilizantes y más para optimizar tu producción.">
+  <meta name="keywords" content="agropecuaria, Bolivia, herbicidas, insecticidas, fertilizantes, agroquímicos, semillas, maquinaria agrícola, productos agrícolas, control de plagas, nutrición vegetal">
+  <title>Agropecuaria Jara - Líder en productos agrícolas y pecuarios en Bolivia</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="agrojaralogo.png" type="image/png">
+  <script type="module" src="firebaseauth.js"></script>
+  </head>
+<body>
+  <header class="main-header">
+    <div class="logo-container">
+      <a href="index.html" aria-label="Ir a la página de inicio de Agropecuaria Jara">
+        <img src="agrojaralogo.png" alt="Logo de Agropecuaria Jara" class="logo" width="60" height="60">
+      </a>
+      <h1>Agropecuaria Jara</h1>
+    </div>
+    <div class="header-right">
+      <form role="search" class="search-form">
+        <label for="search-input" class="sr-only">Buscar productos en la tienda</label>
+        <input type="search" id="search-input" placeholder="Buscar productos..." class="search-bar" aria-label="Buscar productos">
+        <button type="submit" class="search-button" aria-label="Iniciar búsqueda">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+      <a href="login.html" class="login-btn" id="authLink">Iniciar Sesión</a>
+    </div>
+  </header>
+
+  <nav class="main-nav" aria-label="Navegación principal del sitio">
+    <ul>
+      <li><a href="index.html" aria-current="page">Inicio</a></li>
+      <li><a href="Herbicidas/herbicidas.html">Herbicidas</a></li>
+      <li><a href="Insecticidas/insecticidas.html">Insecticidas</a></li>
+      <li><a href="Fungicidas/fungicidas.html">Fungicidas</a></li>
+      <li><a href="Fertilizantes/fertilizantes.html">Fertilizantes</a></li>
+      <li><a href="Herramientas/herramientas.html">Herramientas</a></li>
+      <li><a href="Repuestos/repuestos.html">Repuestos</a></li>
+      <li><a href="Otros/otros.html">Otros</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="welcome">
+      <h2>Bienvenido a Agropecuaria Jara</h2>
+      <p>Encuentra los mejores productos agrícolas y pecuarios para potenciar tu producción en el trópico de Bolivia.</p>
+    </section>
+
+    <section class="productos-destacados" aria-labelledby="destacados-heading">
+      <h2 id="destacados-heading">Productos Destacados</h2>
+      <div class="productos-lista">
+        <article class="producto">
+          <img src="./Herbicidas/bazuka.jpg" alt="Herbicida Bazuka 480 SL" loading="lazy" width="200" height="200">
+          <h3>Herbicida Bazuka 480 SL</h3>
+          <div class="precio-container">
+            <p class="precio-anterior">Bs 150</p>
+            <p class="precio-actual">Bs 120</p>
+          </div>
+          <a href="Herbicidas/herbicidas.html#bazuka" class="btn-producto">Ver Producto</a>
+        </article>
+
+        <article class="producto">
+          <img src="./Herbicidas/gramoxone.jpg" alt="Herbicida Gramoxone 24 SL" loading="lazy" width="200" height="200">
+          <h3>Herbicida Gramoxone 24 SL</h3>
+          <div class="precio-container">
+            <p class="precio-anterior">Bs 120</p>
+            <p class="precio-actual">Bs 90</p>
+          </div>
+          <a href="Herbicidas/herbicidas.html#gramoxone" class="btn-producto">Ver Producto</a>
+        </article>
+
+        <article class="producto">
+          <img src="./Herbicidas/kemate.png" alt="Herbicida Kemate 360 SL" loading="lazy" width="200" height="200">
+          <h3>Herbicida Kemate 360 SL</h3>
+          <div class="precio-container">
+            <p class="precio-anterior">Bs 130</p>
+            <p class="precio-actual">Bs 100</p>
+          </div>
+          <a href="Herbicidas/herbicidas.html#kemate" class="btn-producto">Ver Producto</a>
+        </article>
+
+        <article class="producto">
+          <img src="./Herbicidas/lifeline.png" alt="Herbicida Lifeline 480 EC" loading="lazy" width="200" height="200">
+          <h3>Herbicida Lifeline 480 EC</h3>
+          <div class="precio-container">
+            <p class="precio-anterior">Bs 140</p>
+            <p class="precio-actual">Bs 110</p>
+          </div>
+          <a href="Herbicidas/herbicidas.html#lifeline" class="btn-producto">Ver Producto</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <p>&copy; <span id="current-year"></span> Agropecuaria Jara. Todos los derechos reservados.</p>
+      <p>Escuela Militar de Ingeniería - Unidad Académica del Trópico</p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

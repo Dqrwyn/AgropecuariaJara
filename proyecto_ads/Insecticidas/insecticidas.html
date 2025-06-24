@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es-BO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encuentra los insecticidas más eficaces y seguros en Agropecuaria Jara para proteger tus cultivos de todo tipo de plagas y asegurar tu cosecha.">
+    <meta name="keywords" content="insecticidas, control de plagas, plagas agrícolas, agroquímicos, contacto, sistémico, ingestión, residual, lepidópteros, coleópteros, hemípteros, ácaros, mosca blanca, Bolivia">
+    <title>Insecticidas de Última Generación | Agropecuaria Jara</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../categoria.css">
+    <link rel="icon" href="/agrojaralogo.png" type="image/png">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="../index.html" aria-label="Ir a la página de inicio de Agropecuaria Jara">
+                <img src="../agrojaralogo.png" alt="Logo de Agropecuaria Jara" class="logo" width="60" height="60">
+            </a>
+            <h1>Agropecuaria Jara</h1>
+        </div>
+        <div class="header-right">
+            <form role="search" class="search-form">
+                <label for="search-insecticidas" class="sr-only">Buscar insecticidas específicos</label>
+                <input type="search" id="search-insecticidas" placeholder="Buscar insecticidas..." class="search-bar" aria-label="Buscar insecticidas">
+                <button type="submit" class="search-button" aria-label="Iniciar búsqueda de insecticidas">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </form>
+            <a href="../login.html" class="login-btn">Iniciar Sesión</a>
+        </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Navegación principal del sitio">
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../Herbicidas/herbicidas.html">Herbicidas</a></li>
+            <li><a href="../Insecticidas/insecticidas.html" aria-current="page">Insecticidas</a></li>
+            <li><a href="../Fungicidas/fungicidas.html">Fungicidas</a></li>
+            <li><a href="../Fertilizantes/fertilizantes.html">Fertilizantes</a></li>
+            <li><a href="../Herramientas/herramientas.html">Herramientas</a></li>
+            <li><a href="../Repuestos/repuestos.html">Repuestos</a></li>
+            <li><a href="../Otros/otros.html">Otros</a></li>
+        </ul>
+    </nav>
+
+    <main class="categoria-container">
+        <div class="category-header">
+            <div class="category-hero">
+                <h1>Insecticidas</h1>
+                <p>Protección avanzada y soluciones innovadoras para el control de plagas en todos tus cultivos.</p>
+            </div>
+            <div class="category-filter">
+                <div class="filter-group">
+                    <label for="tipo-insecticida">Tipo de Insecticida:</label>
+                    <select id="tipo-insecticida" aria-controls="productos-insecticidas-grid">
+                        <option value="todos">Todos</option>
+                        <option value="contacto">De contacto</option>
+                        <option value="sistemico">Sistémico</option>
+                        <option value="ingestion">Por ingestión</option>
+                        <option value="residual">Residual</option>
+                        <option value="fumigacion">Para fumigación</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="plaga">Plaga Objetivo:</label>
+                    <select id="plaga" aria-controls="productos-insecticidas-grid">
+                        <option value="todos">Todos</option>
+                        <option value="lepidopteros">Lepidópteros (Gusanos)</option>
+                        <option value="coleopteros">Coleópteros (Escarabajos)</option>
+                        <option value="hemipteros">Hemípteros (Pulgones, Mosca blanca)</option>
+                        <option value="acaros">Ácaros</option>
+                        <option value="mosca">Moscas de la fruta</option>
+                        <option value="trips">Thrips</option>
+                    </select>
+                </div>
+                <button class="filter-btn">Filtrar</button>
+                <button class="reset-btn">Reiniciar</button>
+            </div>
+        </div>
+
+        <section class="productos-categoria">
+            <h2 class="sr-only">Listado de Insecticidas</h2>
+            <div class="productos-grid" id="productos-insecticidas-grid">
+                <article class="producto-card" data-tipo="sistemico residual" data-plaga="lepidopteros hemipteros" id="producto-insecticida-1">
+                    <div class="producto-badge">Novedad</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Insecticidas/extraguard.png" alt="Insecticida Xtreme Guard" loading="lazy" width="300" height="220">
+                        <button class="quick-view" aria-label="Vista rápida de Insecticida Xtreme Guard">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Xtreme Guard 200 SL</h3>
+                        <p class="producto-desc">Insecticida sistémico de amplio espectro, controla lepidópteros y hemípteros con efecto residual prolongado.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 180</span>
+                            <span class="precio-anterior">Bs 220</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars" aria-label="Calificación de 5 de 5 estrellas">★★★★★</span>
+                            <span class="reviews">(30 Reseñas)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Xtreme Guard 200 SL al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-tipo="contacto ingestion" data-plaga="coleopteros trips" id="producto-insecticida-2">
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Insecticidas/Fastkill.jpg" alt="Insecticida Fast Kill" loading="lazy" width="300" height="220">
+                        <button class="quick-view" aria-label="Vista rápida de Insecticida Fast Kill">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Fast Kill 15 EC</h3>
+                        <p class="producto-desc">Insecticida de contacto y por ingestión para control rápido de coleópteros y trips en etapas tempranas.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 110</span>
+                            <span class="precio-anterior">Bs 130</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars" aria-label="Calificación de 4 de 5 estrellas">★★★★☆</span>
+                            <span class="reviews">(20 Reseñas)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Fast Kill 15 EC al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="producto-card" data-tipo="sistemico" data-plaga="mosca hemipteros" id="producto-insecticida-3">
+                    <div class="producto-badge">Más Popular</div>
+                    <div class="producto-imagen">
+                        <img src="/proyecto_ads/Insecticidas/greensield.jpeg" alt="Insecticida Green Shield" loading="lazy" width="300" height="220">
+                        <button class="quick-view" aria-label="Vista rápida de Insecticida Green Shield">Vista rápida</button>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Green Shield 10 SL</h3>
+                        <p class="producto-desc">Insecticida sistémico altamente eficaz contra mosca blanca y pulgones, ideal para diversos cultivos.</p>
+                        <div class="producto-precio">
+                            <span class="precio-actual">Bs 145</span>
+                            <span class="precio-anterior">Bs 170</span>
+                        </div>
+                        <div class="producto-rating">
+                            <span class="stars" aria-label="Calificación de 5 de 5 estrellas">★★★★★</span>
+                            <span class="reviews">(40 Reseñas)</span>
+                        </div>
+                        <button class="btn-add-cart" aria-label="Añadir Green Shield 10 SL al carrito">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                </div>
+        </section>
+
+        <section class="category-info">
+            <h2 class="sr-only">Información Adicional sobre Insecticidas</h2>
+            <div class="info-tabs">
+                <div class="tabs-header" role="tablist" aria-label="Información de Insecticidas">
+                    <button class="tab-btn active" data-tab="descripcion" role="tab" id="tab-descripcion-insect" aria-controls="descripcion-insect" aria-selected="true">Descripción</button>
+                    <button class="tab-btn" data-tab="aplicacion" role="tab" id="tab-aplicacion-insect" aria-controls="aplicacion-insect" aria-selected="false">Modo de Aplicación</button>
+                    <button class="tab-btn" data-tab="seguridad" role="tab" id="tab-seguridad-insect" aria-controls="seguridad-insect" aria-selected="false">Medidas de Seguridad</button>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="descripcion-insect" role="tabpanel" aria-labelledby="tab-descripcion-insect">
+                        <h3>Insecticidas de Última Generación</h3>
+                        <p>Nuestra gama de insecticidas proporciona soluciones avanzadas y confiables para proteger tus cultivos contra una amplia variedad de plagas que amenazan su desarrollo y rendimiento.</p>
+                        <p>Ofrecemos productos con diferentes modos de acción (contacto, sistémicos, ingestión, residuales) y espectros de control, diseñados para adaptarse a las necesidades específicas de cada cultivo y tipo de plaga.</p>
+                        <ul>
+                            <li><strong>Amplio espectro de acción:</strong> Control eficaz contra lepidópteros, coleópteros, hemípteros, ácaros y más.</li>
+                            <li><strong>Innovación en formulación:</strong> Mejor adherencia, penetración y persistencia para resultados duraderos.</li>
+                            <li><strong>Integración en MIP:</strong> Compatibles con programas de Manejo Integrado de Plagas para una gestión sostenible.</li>
+                            <li><strong>Baja residualidad:</strong> Productos con perfiles de seguridad mejorados para el medio ambiente y la salud humana.</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="aplicacion-insect" role="tabpanel" aria-labelledby="tab-aplicacion-insect" hidden>
+                        <h3>Recomendaciones de Aplicación</h3>
+                        <p>Para asegurar la máxima eficacia y seguridad al aplicar nuestros insecticidas, sigue estas directrices:</p>
+                        <ol>
+                            <li><strong>Dosis y Calibración:</strong> Mide con precisión la dosis recomendada según la etiqueta del producto. Calibra tu equipo de aplicación regularmente.</li>
+                            <li><strong>Momento Óptimo:</strong> Aplica durante las horas de menor actividad de polinizadores (temprano en la mañana o al atardecer) y cuando las plagas estén en su etapa más vulnerable.</li>
+                            <li><strong>Cobertura Total:</strong> Asegura una cobertura completa y uniforme de la planta, especialmente en el envés de las hojas donde muchas plagas se esconden.</li>
+                            <li><strong>Condiciones Climáticas:</strong> Evita aplicar bajo condiciones de viento fuerte, temperaturas extremas o inminencia de lluvia.</li>
+                            <li><strong>Rotación:</strong> Alterna insecticidas con diferentes modos de acción para prevenir el desarrollo de resistencia en las plagas.</li>
+                        </ol>
+                    </div>
+                    <div class="tab-pane" id="seguridad-insect" role="tabpanel" aria-labelledby="tab-seguridad-insect" hidden>
+                        <h3>Precauciones y Seguridad</h3>
+                        <p>El uso seguro de insecticidas es primordial para proteger a las personas, los cultivos y el ecosistema:</p>
+                        <div class="safety-grid">
+                            <div class="safety-item">
+                                <span class="icon" role="img" aria-label="Icono de persona con equipo de protección">👷</span>
+                                <h4>Uso de EPP</h4>
+                                <p>Siempre usa equipo de protección personal (EPP) completo: guantes, mascarilla, gafas y ropa de manga larga.</p>
+                            </div>
+                            <div class="safety-item">
+                                <span class="icon" role="img" aria-label="Icono de abeja">🐝</span>
+                                <h4>Protección de Polinizadores</h4>
+                                <p>Evita aplicaciones durante la floración. Utiliza productos específicos de bajo impacto para polinizadores cuando sea necesario.</p>
+                            </div>
+                            <div class="safety-item">
+                                <span class="icon" role="img" aria-label="Icono de río">🏞️</span>
+                                <h4>Impacto Ambiental</h4>
+                                <p>No contamines cuerpos de agua. Sigue las instrucciones de disposición de envases y residuos para proteger el medio ambiente.</p>
+                            </div>
+                            <div class="safety-item">
+                                <span class="icon" role="img" aria-label="Icono de botiquín de primeros auxilios">🩹</span>
+                                <h4>Emergencias</h4>
+                                <p>Mantén un botiquín de primeros auxilios cerca. En caso de intoxicación, busca ayuda médica de inmediato y lleva la etiqueta del producto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><span class="icon" role="img" aria-label="Teléfono">📞</span> +591 123 4567</p>
+                <p><span class="icon" role="img" aria-label="Email">✉️</span> info@agropecuariajara.com</p>
+                <p><span class="icon" role="img" aria-label="Ubicación">📍</span> Av. Principal #123, Ciudad de Montero, Santa Cruz, Bolivia</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horario de Atención</h3>
+                <p>Lunes a Viernes: 8:00 - 18:00</p>
+                <p>Sábado: 8:00 - 12:00</p>
+                <p>Domingo: Cerrado</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../login.html">Mi Cuenta</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year-category-insect"></span> Agropecuaria Jara. Todos los derechos reservados.</p>
+            <p>Desarrollado por la Escuela Militar de Ingeniería - Unidad Académica del Trópico</p>
+        </div>
+    </footer>
+
+    <script src="../js/categoria.js"></script>
+    <script>
+        document.getElementById('current-year-category-insect').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
